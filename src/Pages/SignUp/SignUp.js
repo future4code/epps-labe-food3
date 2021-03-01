@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import style from "./Style.css";
+import logo from "../../Assets/logo.png";
 import TextField from "@material-ui/core/TextField";
 
 
 const SignUp = () => {
   return (
     <div className="main">
+      <img src={logo} alt='logo' />
       <h1 className="Text">Cadastrar</h1>
       <TextField
         id="outlined-basic"
