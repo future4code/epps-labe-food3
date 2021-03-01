@@ -15,81 +15,17 @@ cursor: pointer;
 const Login = () => {
     const history = useHistory();
     const [form, onChange, clear] = useForm({email: "", password: ""})
-    const [message, setMessage] = useState("");
-    const [score, setScore] = useState(0);
-    const [type, settype] = useState("password");
   
     console.log(form)
     
-    
-    const handleMessage = () => {
-      if (score > 0 && score <= 3) {
-        setMessage('Senha fraca')
-      } else if (score >= 4 && score <= 6) {
-        setMessage('Senha média')
-      } else if (score > 6) {
-        setMessage('Senha forte')
-      }
-    }
-  
-    useEffect(() => {
-      handleMessage()
-    })
-  
-    useEffect(() => {
-      let newScore = 0
-  
-      if (form.password.length > 5) {
-        newScore = newScore + 1
-      }
-  
-      if (form.password.length > 10) {
-        newScore += 2
-      }
-  
-      if (/[A-Z]/.test(form.password)) {
-        newScore += 1
-      }
-  
-      if (/\d/.test(form.password)) {
-        newScore += 1
-      }
-  
-      if (
-        form.password.includes("!") ||
-        form.password.includes("@") ||
-        form.password.includes("#")
-      ) {
-        newScore += 2
-      }
-  
-      setScore(newScore)
-    }, [form.password])
-    
-    const CheckEmail = () =>{
-      const re=/\S+@\S+\.\S+/
-      return(
-          !re.test(String(form.email).toLowerCase())
-      )
-    }
 
-  const CheckPassword = () =>{
-      if(type==="form.password"){
-          settype("text")
-      }else{
-          settype("form.password")
-      }
-  }
-    
-  const Confirm = () =>{
-    if(form.password.length<=6){ //se a senha for menor que 6 digitos, mensagem de senha fraca aparece.
-        alert('senha fraca!')
-    }else{
-        alert('cadastrado com sucesso! :)')
-    }
-  }
-    
-
+    // const CheckEmail = () =>{
+    //   const re=/\S+@\S+\.\S+/
+    //   return(
+    //       !re.test(String(form.email).toLowerCase())
+    //   )
+    // }
+ 
   return (
     <div className="main">
         <div className="Logo_FutureEats_invert">
@@ -107,10 +43,10 @@ const Login = () => {
         // placeholder="email@email.com"
         className="Input_nolocus"
         required
-        error={CheckEmail()}
-        helperText={CheckEmail()?'Digite um email valido!':''}
+        // error={CheckEmail()}
+        // helperText={CheckEmail()?'Digite um email valido!':''}
       />
-      {/* <TextField
+      <TextField
         name="password"
         value={form.password}
         onChange={onChange}
@@ -118,10 +54,12 @@ const Login = () => {
         label="Minimo 6 caracteres"
         variant="outlined"
         className="Input_nolocus"
+        // pattern="[A-Za-z]{3,}" minimo 3 caracts
+        //pattern="[.\s\w]{10,}" minimo 10 caracts
+        pattern="[.\s\w]{6,}" 
+        min="6"
         required
-      /> */}
-      <p>{message}</p>
-        <progress value={score} min={0} max={7} />
+      />
       <button className="Rectangle">Entrar</button>
       <p>Nao possui cadastro? <Link onClick={()=>goToSignUp(history)}>clique aqui</Link></p>
       
