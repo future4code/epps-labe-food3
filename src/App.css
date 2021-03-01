@@ -2,3 +2,11 @@
   margin: 0px;
   padding: 0px;
 }
+
+:root{
+  --mainColor: #5cb646;
+  --initialPage: #000000;
+  --text: #b8b8b8;
+}
+
+
