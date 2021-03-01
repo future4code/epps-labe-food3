@@ -69,11 +69,12 @@ button{
     border: none;
   }
 
-.logo{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
+  .Logo_FutureEats_invert {
+    width: 104px;
+    height: 58px;
+    margin: 24px 128px 16px;
+    object-fit: contain;
+  }
 
 
 
