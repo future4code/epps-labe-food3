@@ -4,6 +4,12 @@ import style from "./Style.css";
 import TextField from "@material-ui/core/TextField";
 import {goToSignUp} from '../../components/Route/Coordinator';
 import { useHistory } from "react-router-dom";
+import styled from 'styled-components'
+
+const Link = styled.u`
+cursor: pointer;
+`
+
 
 const Login = () => {
     const history = useHistory();
@@ -27,8 +33,8 @@ const Login = () => {
         className="Input_nolocus"
       />
       <button className="Rectangle">Entrar</button>
-      <p>Nao possui cadastro? <u>clique aqui</u></p>
-      <button onClick={()=>goToSignUp(history)}>Cadastrar</button>
+      <p>Nao possui cadastro? <Link onClick={()=>goToSignUp(history)}>clique aqui</Link></p>
+      
     </div>
   );
 };
