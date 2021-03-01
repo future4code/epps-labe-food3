@@ -1,14 +1,16 @@
-import './App.css';
-import Login from './components/Login/Login';
-import React, { useEffect, useState } from "react";
-import Router from './components/Route/Router';
+import React from "react";
+import "./App.css";
+import Router from "./components/Route/Router";
+import RestaurantsProvider from "./Contexts/RestaurantsCtx";
 
 function App() {
   return (
-      <>
+    <div>
+      <RestaurantsProvider>
         <Router />
-      </>
-  )
+      </RestaurantsProvider>
+    </div>
+  );
 }
 
 export default App;
