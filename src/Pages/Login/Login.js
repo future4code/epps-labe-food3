@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "./Style.css";
-import logo from '../img/logo-future-eats.png';
+import logo from '../../Assets/img/logo-future-eats.png';
 
 const Login = () => {
   return (

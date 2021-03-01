@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import LoginPage from "../Login/Login";
+import LoginPage from "../Pages/Login/Login";
 
 export default function Router(){
     return(
