@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import style from "./Style.css";
-// import logo from "../../Assets/img/logo.png";
+// import logo from "../../Assets/logo.png";
 import TextField from "@material-ui/core/TextField";
-import {goToSignUp} from '../../Routes/Coordinator';
+import {goToSignUp} from '../../components/Route/Coordinator';
 import { useHistory } from "react-router-dom";
 
 const Login = () => {
