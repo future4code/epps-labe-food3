@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import style from "./Style.css";
-// import logo from "../../Assets/logo.png";
+import logo from "../../Assets/logo.png";
 import TextField from "@material-ui/core/TextField";
-import {goToSignUp} from '../../components/Route/Coordinator';
+import {goToSignUp} from '../../Routes/Coordinator';
 import { useHistory } from "react-router-dom";
 import styled from 'styled-components'
 
@@ -16,7 +16,7 @@ const Login = () => {
 
   return (
     <div className="main">
-        {/* <img src={logo} /> */}
+      <img src={logo} alt='logo' />
 
       <h1 className="Text">Entrar</h1>
       <TextField
