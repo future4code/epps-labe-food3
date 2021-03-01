@@ -1,4 +1,3 @@
-import React from "react";
 import './App.css';
 import RestaurantsProvider from "./Contexts/RestaurantsCtx";
 import React, { useEffect, useState } from "react";
