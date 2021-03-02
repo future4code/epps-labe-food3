@@ -10,7 +10,7 @@ import {
   CardContainer,
 } from "./styled";
 
-const CardRestaurant = () => {
+const CardRestaurant = (props) => {
   const history = useHistory();
   const goToRestaurantPage = (id) => {
     history.push(`restaurant/${id}`);
@@ -21,14 +21,15 @@ const CardRestaurant = () => {
       <RestCard
         onClick={() => goToRestaurantPage()}
       >
-        <RestLogo src='https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/408EC97E-C392-4921-BD6C-055A5175BCBC.png' />
-        <CardName>Burger King</CardName>
+        <RestLogo src={props.logoUrl} />
+        <CardName>{props.name}</CardName>
         <CardFooter>
-          <CardInfo>60 min</CardInfo>
-          <CardInfo>Frete: R$ 10,00</CardInfo>
+          <CardInfo>{props.deliveryTime} min</CardInfo>
+          <CardInfo>Frete: R$ {parseFloat(props.shipping).toFixed(2)}</CardInfo>
         </CardFooter>
       </RestCard>
     </CardContainer>
   );
 };
+
 export default CardRestaurant;

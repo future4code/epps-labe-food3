@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useRestaurants } from "../../Contexts/RestaurantsCtx";
 import axios from "axios";
 import { getRestaurantsURL, headers } from "../../Constants/Urls";
-import { 
+import {
   DivContent,
   Header,
   Title,
@@ -10,11 +10,10 @@ import {
   FilterContainer,
   FilterKey,
   RestaurantContainer,
- } from "./HomeStyle";
+} from "./HomeStyle";
 import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import CardCompany from "../../components/CardCompany/CardCompany";
 import RestaurantCardHome from "../../components/RestaurantCardHome/RestaurantCardHome";
 import Footer from "../../components/Footer/Footer";
 
@@ -33,11 +32,7 @@ export default function Home() {
       });
   };
 
-  const renderCompanies = restaurants.map((rest) => {
-    return <CardCompany id={rest.id} name={rest.name} />;
-  });
-
-  useEffect(() => { 
+  useEffect(() => {
     getRestaurants();
   }, []);
 
@@ -48,19 +43,31 @@ export default function Home() {
       </Header>
       <div>
         <InputContainer>
-          <TextField variant='outlined' placeholder='Procurar restaurante' fullWidth/>
-
+          <TextField
+            variant="outlined"
+            placeholder="Procurar restaurante"
+            fullWidth
+          />
         </InputContainer>
         <FilterContainer>
-          <FilterKey>
-          </FilterKey>
+          <FilterKey></FilterKey>
         </FilterContainer>
+
         <RestaurantContainer>
-          <RestaurantCardHome/>
+          {restaurants &&
+            restaurants.map((rest) => {
+              return (
+                <RestaurantCardHome
+                  name={rest.name}
+                  logoUrl={rest.logoUrl}
+                  deliveryTime={rest.deliveryTime}
+                  shipping={rest.shipping}
+                />
+              );
+            })}
         </RestaurantContainer>
       </div>
-      <Footer/>
-      {restaurants && renderCompanies}
+      <Footer />
     </DivContent>
   );
 }
