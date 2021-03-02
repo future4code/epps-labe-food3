@@ -5,8 +5,7 @@ import style from "./Style.css";
 import TextField from "@material-ui/core/TextField";
 import { goToSignUp, goToAdress } from "../../../Routes/Coordinator";
 import useForm from "../../../Hooks/useForm";
-import logo from "../../Assets/logo-future-eats-invert.png";
-import olho from "../../Assets/senha@2x.png";
+import logo from '../../../Assets/logo-future-eats-invert.png';
 import styled from "styled-components";
 
 const LoginForm = () => {

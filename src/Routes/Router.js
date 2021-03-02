@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import LoginPage from "../Pages/Login/Login";
+import LoginPage from "../Pages/Profile/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
-import Address from "../Pages/Address/Address";
+import Address from "../Pages/Profile/Address/Address";
 import Home from "../Pages/Home/Home";
 import RestaurantPage from "../Pages/Restaurant";
 
