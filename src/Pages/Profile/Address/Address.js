@@ -1,6 +1,6 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-import logo from "../../Assets/logo-future-eats-invert.png";
+import logo from '../../../Assets/logo-future-eats-invert.png';
 import useForm from "../../../Hooks/useForm";
 import axios from "axios";
 
