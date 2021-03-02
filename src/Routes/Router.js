@@ -19,11 +19,16 @@ export default function Router() {
         <Route exact path="/address">
           <Address />
         </Route>
-        <Route exact path="/restaurant">
+        <Route exact path="/restaurant/:id">
           <RestaurantPage />
         </Route>
         <Route exact path="/home">
           <Home />
+        </Route>
+        <Route> 
+          <div>
+            Error 404 - Page not found
+          </div>
         </Route>
       </Switch>
     </BrowserRouter>

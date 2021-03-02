@@ -1,80 +1,135 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { getDetailRestaurantURL, headers } from "../../Constants/Urls";
+
+//DESIGN
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import { TextTitle, MainCard, MainCardContent, ImagesFood, CardPrice, ButtonAdd, ButtonRemove, BoxCard, TextP } from "./styled";
+import {
+  TextTitle,
+  MainCard,
+  MainCardContent,
+  ImagesFood,
+  CardPrice,
+  ButtonAdd,
+  ButtonRemove,
+  BoxCard,
+  TextP,
+} from "./styled";
 
 const useStyles = makeStyles({
-    root: {
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    media: {
-        alignItems: "space-between",
-        height: 120,
-        width: 330,
-        margin: 5,
-        
-    },
-    transition: "center",
+  root: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  media: {
+    alignItems: "space-between",
+    height: 120,
+    width: 330,
+    margin: 5,
+  },
+  transition: "center",
 });
 
 export default function RestaurantCard() {
-    const classes = useStyles();
+  const classes = useStyles();
+  const { id } = useParams();
+  const [restaurant, setRestaurant] = useState([]);
+  const getDetailRestaurant = () => {
+    axios
+      .get(getDetailRestaurantURL(id), headers)
+      .then((res) => {
+        console.log(res.data.restaurant);
+        setRestaurant(res.data.restaurant);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
 
-    return (
-        <BoxCard>
-            <Card>
+  useEffect(() => {
+    getDetailRestaurant();
+  }, []);
 
-                <CardMedia
-                    style={{ borderRadius: "10px 10px 0 0" }}
-                    image="https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/408EC97E-C392-4921-BD6C-055A5175BCBC.png"
-                    className={classes.media}
-                    title="foto capa restaurante"
-                />
-                <CardContent>
-                    <TextTitle gutterBottom variant="h5" component="h2"> Bullguer Villa Mariana </TextTitle>
-                    <Typography variant="body2" color="textSecondary" component="p"> Burger </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p"> 50 - 60 min <p>Frete: R$ 6,00</p> </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p"> R. Fradique Coltinho, 1136 - Vila Mariana </Typography>
-                </CardContent>
+  return (
+    <BoxCard>
+      <Card>
+        <CardMedia
+          style={{ borderRadius: "10px 10px 0 0" }}
+          image={restaurant.logoUrl}
+          className={classes.media}
+          title="foto capa restaurante"
+        />
+        <CardContent>
+          <TextTitle gutterBottom variant="h5" component="h2">
+            {" "}
+            {restaurant.name}{" "}
+          </TextTitle>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {" "}
+            {restaurant.category}{" "}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {" "}
+            Prazo de entrega ~ {restaurant.deliveryTime} min{" "}
+            <p>Frete: R$ {parseFloat(restaurant.shipping).toFixed(2)}</p>{" "}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {" "}
+            {restaurant.address}{" "}
+          </Typography>
+        </CardContent>
 
-                <TextP>Principais</TextP>
-              
-                <MainCard>
-                    <ImagesFood src="https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/95588246-1173-4513-89DA-A6107AFECF60.png" />
+        <TextP>Principais</TextP>
 
-                    <MainCardContent>
-                        <TextTitle gutterBottom variant="h5" component="h2"> Bullguer </TextTitle>
-                        <Typography variant="body2" color="textSecondary" component="p"> Pão, carne, queijo, picles e molho </Typography>
+        <MainCard>
+          <ImagesFood src="https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/95588246-1173-4513-89DA-A6107AFECF60.png" />
 
-                        <CardPrice>
-                            <p>R$ 20,00</p>
-                            <CardActions>
-                                <ButtonAdd>adicionar</ButtonAdd>
-                            </CardActions>
-                        </CardPrice>
-                    </MainCardContent>
-                </MainCard>
-                <MainCard>
-                    <ImagesFood src="https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/95588246-1173-4513-89DA-A6107AFECF60.png" />
+          <MainCardContent>
+            <TextTitle gutterBottom variant="h5" component="h2">
+              {" "}
+              Bullguer{" "}
+            </TextTitle>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {" "}
+              Pão, carne, queijo, picles e molho{" "}
+            </Typography>
 
-                    <MainCardContent>
-                        <TextTitle gutterBottom variant="h5" component="h2"> Stencil </TextTitle>
-                        <Typography variant="body2" color="textSecondary" component="p"> Pão, carne, queijo, cebola roxa, tomate, alface e molho </Typography>
+            <CardPrice>
+              <p>R$ 20,00</p>
+              <CardActions>
+                <ButtonAdd>adicionar</ButtonAdd>
+              </CardActions>
+            </CardPrice>
+          </MainCardContent>
+        </MainCard>
+        <MainCard>
+          <ImagesFood src="https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/95588246-1173-4513-89DA-A6107AFECF60.png" />
 
-                        <CardPrice>
-                            <p>R$ 23,00</p>
-                            <CardActions>
-                                <ButtonRemove>remover</ButtonRemove>
-                            </CardActions>
-                        </CardPrice>
-                    </MainCardContent>
-                </MainCard>
-            </Card>
-        </BoxCard>
-    );
+          <MainCardContent>
+            <TextTitle gutterBottom variant="h5" component="h2">
+              {" "}
+              Stencil{" "}
+            </TextTitle>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {" "}
+              Pão, carne, queijo, cebola roxa, tomate, alface e molho{" "}
+            </Typography>
+
+            <CardPrice>
+              <p>R$ 23,00</p>
+              <CardActions>
+                <ButtonRemove>remover</ButtonRemove>
+              </CardActions>
+            </CardPrice>
+          </MainCardContent>
+        </MainCard>
+      </Card>
+    </BoxCard>
+  );
 }
