@@ -87,48 +87,37 @@ export default function RestaurantCard() {
 
         <TextP>Principais</TextP>
 
-        <MainCard>
-          <ImagesFood src="https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/95588246-1173-4513-89DA-A6107AFECF60.png" />
+        {/* RENDERIZANDO PRODUTOS */}
+        {restaurant.products &&
+          restaurant.products.map((pdt) => {
+            return (
+              <MainCard>
+                <ImagesFood src={pdt.photoUrl} />
 
-          <MainCardContent>
-            <TextTitle gutterBottom variant="h5" component="h2">
-              {" "}
-              Bullguer{" "}
-            </TextTitle>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {" "}
-              Pão, carne, queijo, picles e molho{" "}
-            </Typography>
+                <MainCardContent>
+                  <TextTitle gutterBottom variant="h5" component="h2">
+                    {" "}
+                    {pdt.name}{" "}
+                  </TextTitle>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    {" "}
+                    {pdt.description}{" "}
+                  </Typography>
 
-            <CardPrice>
-              <p>R$ 20,00</p>
-              <CardActions>
-                <ButtonAdd>adicionar</ButtonAdd>
-              </CardActions>
-            </CardPrice>
-          </MainCardContent>
-        </MainCard>
-        <MainCard>
-          <ImagesFood src="https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/95588246-1173-4513-89DA-A6107AFECF60.png" />
-
-          <MainCardContent>
-            <TextTitle gutterBottom variant="h5" component="h2">
-              {" "}
-              Stencil{" "}
-            </TextTitle>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {" "}
-              Pão, carne, queijo, cebola roxa, tomate, alface e molho{" "}
-            </Typography>
-
-            <CardPrice>
-              <p>R$ 23,00</p>
-              <CardActions>
-                <ButtonRemove>remover</ButtonRemove>
-              </CardActions>
-            </CardPrice>
-          </MainCardContent>
-        </MainCard>
+                  <CardPrice>
+                    <p>R$ {pdt.price.toFixed(2)}</p>
+                    <CardActions>
+                      <ButtonAdd>adicionar</ButtonAdd>
+                    </CardActions>
+                  </CardPrice>
+                </MainCardContent>
+              </MainCard>
+            );
+          })}
       </Card>
     </BoxCard>
   );
