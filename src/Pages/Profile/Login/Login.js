@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import styled from 'styled-components'
 import useForm from "../../Hooks/useForm";
 import logo from '../../Assets/logo-future-eats-invert.png';
+import LoginForm from "./LoginForm";
 
 const Link = styled.u`
 cursor: pointer;
@@ -28,39 +29,7 @@ const Login = () => {
  
   return (
     <div className="main">
-        <div className="Logo_FutureEats_invert">
-          <img src={logo} />
-        </div>
-
-      <h1 className="Text">Entrar</h1>
-      <TextField
-        name="email"
-        value={form.email}
-        onChange={onChange}
-        id="outlined-basic"
-        label="e-mail"
-        variant="outlined"
-        // placeholder="email@email.com"
-        className="Input_nolocus"
-        required
-        // error={CheckEmail()}
-        // helperText={CheckEmail()?'Digite um email valido!':''}
-      />
-      <TextField
-        name="password"
-        value={form.password}
-        onChange={onChange}
-        id="outlined-basic"
-        label="Minimo 6 caracteres"
-        variant="outlined"
-        className="Input_nolocus"
-        // pattern="[A-Za-z]{3,}" minimo 3 caracts
-        //pattern="[.\s\w]{10,}" minimo 10 caracts
-        pattern="[.\s\w]{6,}" 
-        min="6"
-        required
-      />
-      <button className="Rectangle">Entrar</button>
+        <LoginForm/>
       <p>Nao possui cadastro? <Link onClick={()=>goToSignUp(history)}>clique aqui</Link></p>
       
     </div>
