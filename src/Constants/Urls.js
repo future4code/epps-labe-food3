@@ -4,6 +4,10 @@ export const postLoginURL = `https://us-central1-missao-newton.cloudfunctions.ne
 
 export const putAddAdress = `https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/address`;
 
+export const getDetailRestaurantURL = (id) => {
+  return `https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants/${id}`;
+};
+
 export const headers = {
   headers: {
     auth: localStorage.getItem("token"),
