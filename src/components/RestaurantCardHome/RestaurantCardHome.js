@@ -19,7 +19,7 @@ const CardRestaurant = (props) => {
   return (
     <CardContainer>
       <RestCard
-        onClick={() => goToRestaurantPage()}
+        onClick={() => goToRestaurantPage(props.id)}
       >
         <RestLogo src={props.logoUrl} />
         <CardName>{props.name}</CardName>

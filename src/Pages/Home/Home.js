@@ -58,6 +58,8 @@ export default function Home() {
             restaurants.map((rest) => {
               return (
                 <RestaurantCardHome
+                key={rest.id}
+                id={rest.id}
                   name={rest.name}
                   logoUrl={rest.logoUrl}
                   deliveryTime={rest.deliveryTime}
