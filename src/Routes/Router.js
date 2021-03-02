@@ -25,6 +25,11 @@ export default function Router() {
         <Route exact path="/home">
           <Home />
         </Route>
+        <Route>
+          <div>
+            Error 404 - Page not found
+          </div>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
