@@ -4,6 +4,7 @@ import LoginPage from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Address from "../Pages/Address/Address";
 import Home from "../Pages/Home/Home";
+import RestaurantPage from "../Pages/Restaurant";
 
 export default function Router() {
   return (
@@ -17,6 +18,9 @@ export default function Router() {
         </Route>
         <Route exact path="/address">
           <Address />
+        </Route>
+        <Route exact path="/restaurant">
+          <RestaurantPage />
         </Route>
         <Route exact path="/home">
           <Home />
