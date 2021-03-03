@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
-import style from "./Style.css";
+import style from "../Style.css";
 import axios from "axios";
-import { goToFeed, goToProfile } from "../../../Routes/Coordinator";
+import { goToEditProfile, goToEditAddress } from "../../../Routes/Coordinator";
 import { useHistory } from "react-router-dom";
 import caneta from "../../../Assets/edit@2x.png";
 import { getProfile } from "../../../requests/user";
-import EditProfile from "./EditProfile";
-import EditAddres from '../MyProfile/EditAddres';
+
 
 const MyProfile = () => {
   const history = useHistory();
   const [profile, setprofile] = useState({});
-  const [isActive, setisActive] = useState(false);
-  const [editadress, setEditadress] = useState(false);
+
 
   useEffect(() => {
     getProfile();
@@ -42,42 +40,27 @@ const MyProfile = () => {
       });
   };
 
-  const activeEdit = () => {
-    setisActive(true);
-  }
-  
-  const editAdress = () => {
-    setEditadress(true);
-  }
-
-
   return (
     <div>
-      {isActive ? (
-        <div>
-          <EditProfile />
-        </div>
-      ) : (
-        <div>
           <div className="text">
           <h1 className="title">Meu perfil</h1>
-            <img src={caneta} className="Edit" onClick={activeEdit} />
+            <img src={caneta} className="Edit" onClick={() => goToEditProfile(history)} />
             <p>{profile.name}</p>
             <p>{profile.email}</p>
             <p>{profile.cpf}</p>
           </div>
 
-          <div className="Rectangle1">
+          <div className="endCadastrado">
             <p>Endereço cadastrado </p>
-            <img src={caneta} className="Edit" onClick={editAdress} />
+            <img src={caneta} className="Edit" onClick={() => goToEditAddress(history)} />
             <p>{profile.address}</p>
           </div>
 
-          <div className="">
+          <div>
             <p>Histórico de pedidos</p>
           </div>
 
-          <div className="Rectangle">
+          <div className="historico">
             <p>Burguer Vila Madalena</p>
             <p>30 de Setembro de 2019</p>
             <h3>
@@ -85,9 +68,7 @@ const MyProfile = () => {
             </h3>
           </div>
         </div>
-      )}
-    </div>
-  );
-};
+  )
+}
 
 export default MyProfile;
