@@ -3,7 +3,7 @@ export const goToSignUp = (history) =>{
 }
 
 export const goToLogin = (history) => {
-    history.push("/")
+    history.push("/login")
 }
 
 export const goToAdress = (history) => {
@@ -16,4 +16,12 @@ export const goToFeed = (history) => {
 
 export const goToProfile = (history) => {
     history.push("/profile")
+}
+
+export const goToEditProfile = (history) =>{
+    history.push("/editProfile")
+}
+
+export const goToEditAddress = (history) =>{
+    history.push("/editAddress")
 }

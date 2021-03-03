@@ -80,6 +80,25 @@ button {
     margin: 24px 128px 16px;
     object-fit: contain;
   }
-
+  
+  /* .senha {
+    width: 24px;
+    height: 24px;
+    margin: 0 0 0 8px;
+    object-fit: contain;
+    background-image: url(../../Assets/senha.png);
+  } */
+  
+  #senha{
+    width: 24px;
+    height: 24px;
+    margin: 0 0 0 8px;
+    object-fit: contain;
+    background-image: url(../../Assets/senha.png);
+    background-repeat: no-repeat;
+    /* background-position-y: center;
+    background-position-x: 400%; */
+    margin-left: 80vw;
+  }
 
 

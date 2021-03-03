@@ -105,9 +105,7 @@ export default function Address() {
           className="Input_nolocus"
           required
         />
-        <button className="Rectangle" onClick={handleAdress}>
-          Criar
-        </button>
+        <button className="Rectangle" onClick={handleAdress}>Criar</button>
       </div>
     </div>
   );
