@@ -2,11 +2,12 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import style from "./Style.css";
-import TextField from "@material-ui/core/TextField";
-import { goToSignUp, goToAdress } from "../../../Routes/Coordinator";
+import TextFieldStyled from "@material-ui/core/TextField";
+import { goToSignUp, goToAdress, goToFeed, goToProfile } from "../../../Routes/Coordinator";
 import useForm from "../../../Hooks/useForm";
 import logo from '../../../Assets/logo-future-eats-invert.png';
 import styled from "styled-components";
+
 
 const LoginForm = () => {
   const history = useHistory();
@@ -41,10 +42,12 @@ const LoginForm = () => {
         console.log(res.data.token)
         
         if(res.data.user.hasAddress===false){
-            alert(`Olá ${res.data.user.name} vc nao possui um end associado, estamos te redirecionando..`)
+            alert(`Olá ${res.data.user.name} vc nao possui um endereco associado, estamos te redirecionando..`)
             goToAdress(history);
         }else{
             alert('BEM VINDO')
+            // goToFeed(history);
+            goToProfile(history)
         }
         clear();
 
@@ -63,25 +66,26 @@ const LoginForm = () => {
         </div>
 
         <h1 className="Text">Entrar</h1>
-        <TextField
+        <TextFieldStyled
           name="email"
           value={form.email}
           onChange={onChange}
           id="outlined-basic"
           label="e-mail"
           variant="outlined"
-          // placeholder="email@email.com"
+          placeholder="email@email.com"
           className="Input_nolocus"
           required
           // error={CheckEmail()}
           // helperText={CheckEmail()?'Digite um email valido!':''}
         />
-        <TextField
+        <TextFieldStyled
           name="password"
           value={form.password}
           onChange={onChange}
           id="outlined-basic"
-          label="Minimo 6 caracteres"
+          label="Senha"
+          placeholder="minimo 6 caracteres"
           variant="outlined"
           className="Input_nolocus"
           // pattern="[A-Za-z]{3,}" minimo 3 caracts
@@ -90,7 +94,7 @@ const LoginForm = () => {
           min="6"
           required
         />
-        <button className="Rectangle" onClick={handleLogin}>ENTRAR</button>
+        <button onClick={handleLogin}>ENTRAR</button>
       </div>
     </>
   );

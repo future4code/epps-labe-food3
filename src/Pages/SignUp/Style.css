@@ -3,3 +3,13 @@
     padding: 0px;
 }
 
+button {
+    width: 360px;
+    height: 42px;
+    margin: 8px 0 0;
+    padding: 0 16px;
+    background: var(--mainColor);
+    border: none;
+    margin: auto;
+  }
+  

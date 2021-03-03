@@ -9,3 +9,11 @@ export const goToLogin = (history) => {
 export const goToAdress = (history) => {
     history.push("/address")
 }
+
+export const goToFeed = (history) => {
+    history.push("/home")
+}
+
+export const goToProfile = (history) => {
+    history.push("/profile")
+}

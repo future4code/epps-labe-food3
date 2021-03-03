@@ -163,9 +163,7 @@ const SignUpForm = () => {
         placeholder="Confirme a senha anterior"
         className="Input_nolocus"
       />
-      <button className="Rectangle" onClick={handleSignUp}>
-        Criar
-      </button>
+      <button onClick={handleSignUp}>Criar</button>
     </div>
   );
 };
