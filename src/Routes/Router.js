@@ -5,6 +5,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Address from "../Pages/Profile/Address/Address";
 import Home from "../Pages/Home/Home";
 import RestaurantPage from "../Pages/Restaurant";
+import Profile from '../Pages/Profile/MyProfile/MyProfile';
 
 export default function Router() {
   return (
@@ -25,6 +26,12 @@ export default function Router() {
         <Route exact path="/home">
           <Home />
         </Route>
+        
+        
+        <Route exact path="/profile">
+          <Profile/>
+        </Route>
+        
         <Route> 
           <div>
             Error 404 - Page not found
