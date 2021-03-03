@@ -6,6 +6,7 @@ import Address from "../Pages/Profile/Address/Address";
 import Home from "../Pages/Home/Home";
 import RestaurantPage from "../Pages/Restaurant";
 import Profile from '../Pages/Profile/MyProfile/MyProfile';
+import { CartPage } from "../Pages/Cart";
 import EditProfile from "../Pages/Profile/MyProfile/EditProfile";
 import EditAddres from "../Pages/Profile/MyProfile/EditAddres";
 import StartUp from '../Pages/StartUp/StartUp';
@@ -30,6 +31,9 @@ export default function Router() {
         </Route>
         <Route exact path="/restaurant/:id">
           <RestaurantPage />
+        </Route>
+        <Route exact path="/cart">
+          <CartPage />
         </Route>
         <Route exact path="/home">
           <Home />
