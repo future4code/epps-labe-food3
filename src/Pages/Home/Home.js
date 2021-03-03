@@ -12,8 +12,6 @@ import {
   RestaurantContainer,
 } from "./HomeStyle";
 import TextField from "@material-ui/core/TextField";
-import SearchIcon from "@material-ui/icons/Search";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import RestaurantCardHome from "../../components/RestaurantCardHome/RestaurantCardHome";
 import Footer from "../../components/Footer/Footer";
 
