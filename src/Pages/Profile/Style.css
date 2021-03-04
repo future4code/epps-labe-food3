@@ -3,7 +3,6 @@
     padding: 0px;
 }
 
-
 .title {
     width: 68px;
     height: 19px;
@@ -20,6 +19,23 @@
     margin: auto;
   }
   
+  .Input_locus {
+    width: 360px;
+    height: 72px;
+    margin: 58px 0 0;
+    padding: 0 16px 8px;
+  }
+  
+
+  .Rectangle {
+    width: 328px;
+    height: 56px;
+    margin: 8px 0 0;
+    padding: 19px 48px 19px 16px;
+    border-radius: 4px;
+    border: solid 1px var(--greyish);
+  }
+  
   
   .Path-Copy {
     width: 328px;
@@ -28,7 +44,7 @@
     border-bottom: solid 1px #000000;
   }
   
-  .Rectangle {
+  .ButtonDesign {
     width: 328px;
     height: 42px;
     padding: 12px 16px;
@@ -49,7 +65,7 @@
 
   .endCadastrado {
     width: 360px;
-    height: 76px;
+    height: 15vh;
     margin: 16px 0;
     padding: 16px;
     background-color: #eeeeee;
@@ -74,16 +90,7 @@
   .endCadastrado p:first-child{
     color: var(--text)
   }
-  
-  .Input_locus {
-    width: 360px;
-    height: 72px;
-    margin: 16px 0 0;
-    padding: 0 16px 8px;
-    display: flex;
-    justify-content: center;
-  }
-  
+ 
   .text {
     width: 328px;
     height: 18px;

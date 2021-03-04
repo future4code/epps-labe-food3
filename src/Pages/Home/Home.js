@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useRestaurants } from "../../Contexts/RestaurantsCtx";
 import axios from "axios";
-import { getRestaurantsURL, headers } from "../../Constants/Urls";
 import {
   DivContent,
   Header,
@@ -21,31 +20,19 @@ import style from './Style.css';
 import back from '../../Assets/back.png';
 import clock from '../../Assets/clock.png';
 import { useHistory } from "react-router-dom";
+import { getRestaurants } from "../../requests/user";
 
 export default function Home() {
   const { restaurants, setRestaurants } = useRestaurants();
   const history = useHistory();
 
+  useEffect(() => {
+    getRestaurants(setRestaurants);
+  }, []);
   
   const goBack = () =>{
     history.goBack()
 }
-
-  const getRestaurants = () => {
-    axios
-      .get(getRestaurantsURL, headers)
-      .then((res) => {
-        setRestaurants(res.data.restaurants);
-        console.log("Restaurants: ", restaurants);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  };
-
-  useEffect(() => {
-    getRestaurants();
-  }, []);
 
   return (
     <DivContent>
