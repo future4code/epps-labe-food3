@@ -10,6 +10,7 @@ import { CartPage } from "../Pages/Cart";
 import EditProfile from "../Pages/Profile/MyProfile/EditProfile";
 import EditAddres from "../Pages/Profile/MyProfile/EditAddres";
 import StartUp from '../Pages/StartUp/StartUp';
+import Popup from "../components/RestaurantCard/Popup";
 
 export default function Router() {
   return (
@@ -34,6 +35,9 @@ export default function Router() {
         </Route>
         <Route exact path="/cart">
           <CartPage />
+        </Route>
+        <Route exact path="/popup">
+          <Popup />
         </Route>
         <Route exact path="/home">
           <Home />
