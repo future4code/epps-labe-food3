@@ -5,8 +5,39 @@ export const BoxCard = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  align-items: center;
   
+`;
+
+export const Header = styled.div`
+  width: 360px;
+  height: 64px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+export const TitleHeader = styled.p`
+  width: 74px;
+  height: 19px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  text-align: center;
+  color: #000000;
+  display: flex;
+  align-content: center;
 `;
 
 export const TextTitle = styled(Typography)`
