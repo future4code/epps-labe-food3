@@ -13,7 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Header,
-  Title,  
+  TitleHeader,  
   TextTitle,
   MainCard,
   MainCardContent,
@@ -62,7 +62,7 @@ export default function RestaurantCard() {
     <BoxCard>
           <img src={back} onClick={goBack}/>
       <Header>
-        <Title>Restaurantes</Title>
+        <TitleHeader>Restaurantes</TitleHeader>
       </Header>  
       <Card>
         <CardMedia

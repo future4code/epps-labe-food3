@@ -24,7 +24,7 @@ export const Header = styled.div`
   align-items: center;
 `;
 
-export const Title = styled.p`
+export const TitleHeader = styled.p`
   width: 74px;
   height: 19px;
   font-family: Roboto;
