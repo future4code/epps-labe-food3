@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { getDetailRestaurantURL, headers } from "../../Constants/Urls";
+import { useCartCtx } from "../../Contexts/CartCtx";
 
 //DESIGN
 import Card from "@material-ui/core/Card";
@@ -40,6 +41,7 @@ export default function RestaurantCard() {
   const classes = useStyles();
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState([]);
+  const { products, addCart } = useCartCtx();
   const getDetailRestaurant = () => {
     axios
       .get(getDetailRestaurantURL(id), headers)
@@ -111,7 +113,9 @@ export default function RestaurantCard() {
                   <CardPrice>
                     <p>R$ {pdt.price.toFixed(2)}</p>
                     <CardActions>
-                      <ButtonAdd>adicionar</ButtonAdd>
+                      <ButtonAdd onClick={() => addCart(pdt)}>
+                        adicionar
+                      </ButtonAdd>
                     </CardActions>
                   </CardPrice>
                 </MainCardContent>

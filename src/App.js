@@ -1,15 +1,17 @@
-import './App.css';
+import "./App.css";
 import RestaurantsProvider from "./Contexts/RestaurantsCtx";
-import React, { useEffect, useState } from "react";
-import Router from './Routes/Router';
-
+import CartProvider from "./Contexts/CartCtx";
+import React from "react";
+import Router from "./Routes/Router";
 
 function App() {
   return (
     <div>
-      <RestaurantsProvider>
-        <Router />
-      </RestaurantsProvider>
+      <CartProvider>
+        <RestaurantsProvider>
+          <Router />
+        </RestaurantsProvider>
+      </CartProvider>
     </div>
   );
 }
