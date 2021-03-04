@@ -117,15 +117,13 @@ const LoginForm = () => {
         
 
         {type==="password" ? (
-            <img src={hidePassword} className="senha" onClick={showPassword}/>
+            <img src={hidePassword} onClick={showPassword}/>
         ):(
-          <img src={showSenha} className="senha" onClick={showPassword}/>
+          <img src={showSenha} onClick={showPassword}/>
         )}
         
   
-        <button onClick={handleLogin} className="Rectangle">
-          ENTRAR
-        </button>
+        <button onClick={handleLogin} className="Rectangle">ENTRAR</button>
       </div>
     </>
   );

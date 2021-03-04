@@ -87,8 +87,8 @@ export const ButtonAdd = styled.button`
   display: flex;
   align-self: flex-end;
   flex-flow: column wrap;
-  width: 90px;
-  height: 30px;
+  width: 20vw;
+  height: 5vh;
   margin-top: 7px;
   padding: 8px 21px 10px 10px;
   border-top-left-radius: 8px;
