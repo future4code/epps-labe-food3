@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useRestaurants } from "../../Contexts/RestaurantsCtx";
 import axios from "axios";
-import { getRestaurantsURL, headers } from "../../Constants/Urls";
 import {
   DivContent,
   Header,
@@ -21,31 +20,19 @@ import style from './Style.css';
 import back from '../../Assets/back.png';
 import clock from '../../Assets/clock.png';
 import { useHistory } from "react-router-dom";
+import { getRestaurants } from "../../requests/user";
 
 export default function Home() {
   const { restaurants, setRestaurants } = useRestaurants();
   const history = useHistory();
 
+  useEffect(() => {
+    getRestaurants(setRestaurants);
+  }, []);
   
   const goBack = () =>{
     history.goBack()
 }
-
-  const getRestaurants = () => {
-    axios
-      .get(getRestaurantsURL, headers)
-      .then((res) => {
-        setRestaurants(res.data.restaurants);
-        console.log("Restaurants: ", restaurants);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  };
-
-  useEffect(() => {
-    getRestaurants();
-  }, []);
 
   return (
     <DivContent>
@@ -79,12 +66,12 @@ export default function Home() {
         {/* janela apos o pedido ser feito */}
         {/* pode comentar essa janela ate estar funcional*/}
 
-        <div className="popUp">
+        {/* <div className="popUp">
           <img src={clock} className="clock"/>
           <p className="Pedido-em-andamento">Pedido em andamento</p>
           <p className="Bullguer-Vila-Madale">Bullguer Vila Madalena</p>
           <p className="Bullguer-Vila-Madale">Subtotal R$67,00</p>
-        </div>
+        </div> */}
 
 
         <RestaurantContainer>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
-import { getDetailRestaurantURL, headers } from "../../Constants/Urls";
 import { useCartCtx } from "../../Contexts/CartCtx";
+import back from '../../Assets/back.png';
 
 //DESIGN
 import Card from "@material-ui/core/Card";
@@ -12,6 +12,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import {
+  Header,
+  TitleHeader,  
   TextTitle,
   MainCard,
   MainCardContent,
@@ -22,6 +24,7 @@ import {
   BoxCard,
   TextP,
 } from "./styled";
+import { getDetailRestaurant } from "../../requests/user";
 
 const useStyles = makeStyles({
   root: {
@@ -38,28 +41,29 @@ const useStyles = makeStyles({
 });
 
 export default function RestaurantCard() {
+  const history = useHistory();  
   const classes = useStyles();
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState([]);
   const { products, addCart } = useCartCtx();
-  const getDetailRestaurant = () => {
-    axios
-      .get(getDetailRestaurantURL(id), headers)
-      .then((res) => {
-        console.log(res.data.restaurant);
-        setRestaurant(res.data.restaurant);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  };
+  
+  console.log(restaurant)
+  
 
   useEffect(() => {
-    getDetailRestaurant();
+    getDetailRestaurant(id, setRestaurant);
   }, []);
+
+  const goBack = () =>{
+    history.goBack()
+  }
 
   return (
     <BoxCard>
+          <img src={back} onClick={goBack}/>
+      <Header>
+        <TitleHeader>Restaurantes</TitleHeader>
+      </Header>  
       <Card>
         <CardMedia
           style={{ borderRadius: "10px 10px 0 0" }}

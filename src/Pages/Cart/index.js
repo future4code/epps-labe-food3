@@ -22,9 +22,12 @@ import {
 import Buttons from "../../components/Buttons";
 import Footer from "../../components/Footer/Footer";
 import FoodCard from "../../components/FoodCard/FoodCard";
+import { useHistory } from "react-router-dom";
 
 export const CartPage = () => {
   const { products, setProdutcts, payment, setPayment, addCart } = useCartCtx();
+  const history = useHistory();
+
   return (
     <CartContainer>
       <AdressContainer>
@@ -61,12 +64,12 @@ export const CartPage = () => {
           <RadioGroup name="metodoDePag" value="">
             <FormControlLabel
               value="dinheiro"
-              control={<Radio />}
+              control={<Radio color="black" />}
               label="Dinheiro"
             />
             <FormControlLabel
               value="credito"
-              control={<Radio />}
+              control={<Radio color="black" />}
               label="Cartão de crédito"
             />
           </RadioGroup>

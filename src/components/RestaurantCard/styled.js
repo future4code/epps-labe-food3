@@ -5,8 +5,39 @@ export const BoxCard = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  align-items: center;
   
+`;
+
+export const Header = styled.div`
+  width: 360px;
+  height: 64px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+export const TitleHeader = styled.p`
+  width: 74px;
+  height: 19px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  text-align: center;
+  color: #000000;
+  display: flex;
+  align-content: center;
 `;
 
 export const TextTitle = styled(Typography)`
@@ -87,8 +118,8 @@ export const ButtonAdd = styled.button`
   display: flex;
   align-self: flex-end;
   flex-flow: column wrap;
-  width: 90px;
-  height: 30px;
+  width: 20vw;
+  height: 5vh;
   margin-top: 7px;
   padding: 8px 21px 10px 10px;
   border-top-left-radius: 8px;
@@ -113,4 +144,87 @@ export const ButtonRemove = styled.button`
   color: #e02020;
   cursor: pointer;
   background-color: transparent;
+`;
+
+export const BoxPopupAdd = styled.div`
+  position: fixed;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  `;
+
+export const BoxContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 328px;
+    height: 216px;
+    margin: 27px 16px 29px;
+    background-color: #ffffff;
+    `;
+
+export const TitleBox  = styled.div`
+      width: 360px;
+      height: 42px;
+      margin: 31px 0 0;
+      padding: 6px 32px 12px 16px;
+      `;
+
+export const TitleText = styled.p`
+        width: 296px;
+        height: 18px;
+        margin: 6px 0 0 16px;
+        font-family: "Roboto";
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.39px;
+        text-align: center;
+        color: #000000;
+
+        `;
+
+export const SelectQtd = styled.select` 
+      width: 295px;
+      height: 55px;
+      margin: 19px 16px 0;
+      padding: 16px;
+      border-radius: 4px;
+      border: solid 1px grey;
+      background: url("https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/30097AB3-DADD-4ABB-B9C3-A009017420E9.svg")
+      no-repeat right transparent;
+      appearance: none;
+      background-position-x: 264px;
+      font-family: "Roboto";
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.39px;
+      color: #000000;
+      `;
+    
+export const ButtonP = styled.p`
+      width: 183px;
+      height: 19px;
+      margin: 28px 16px 16px 33px;
+      font-family: "Roboto";
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.39px;
+      text-align: right;
+      align-self: flex-end;
+      color: #5cb646;
+      cursor: pointer;
 `;
