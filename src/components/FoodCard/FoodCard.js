@@ -55,9 +55,9 @@ export default function FoodCard (props) {
       <CardPrice>
         <p>R$ {props.price.toFixed(2)}</p>
         <CardActions>
-          <ButtonAdd onClick={props.onClickButton}>
-            adicionar
-          </ButtonAdd>
+          <ButtonRemove onClick={props.onClickButton}>
+            {props.nameButton === "add" ? "Adicionar" : "Remover"}
+          </ButtonRemove>
         </CardActions>
       </CardPrice>
     </MainCardContent>

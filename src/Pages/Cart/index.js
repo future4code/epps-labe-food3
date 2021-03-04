@@ -17,11 +17,7 @@ import {
   SubtotalPrice,
   TotalPrice,
   PaymentMethodText,
-  DivBorder,
   CheckBox,
-  FoodContainer,
-  Rectangle2,
-  FoodImage,
 } from "./styled";
 import Buttons from "../../components/Buttons";
 import Footer from "../../components/Footer/Footer";
@@ -48,6 +44,7 @@ export const CartPage = () => {
               name={pdt.name}
               description={pdt.description}
               price={pdt.price}
+              nameButton="rem"
             />
           );
         })}
