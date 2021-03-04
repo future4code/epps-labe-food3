@@ -5,7 +5,7 @@ import { goToEditProfile, goToEditAddress } from "../../../Routes/Coordinator";
 import { useHistory } from "react-router-dom";
 import caneta from "../../../Assets/edit@2x.png";
 import { getProfile } from "../../../requests/user";
-
+import Footer from "../../../components/Footer/Footer";
 
 const MyProfile = () => {
   const history = useHistory();
@@ -67,6 +67,7 @@ const MyProfile = () => {
               <strong>SUBTOTAL</strong> R$89,00
             </h3>
           </div>
+          <Footer/>
         </div>
   )
 }

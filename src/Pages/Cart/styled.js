@@ -68,3 +68,29 @@ export const CheckBox = styled.div`
   margin: 10px 16px 0 16px;
   border-top: 0.5px solid black;
 `;
+
+export const FoodContainer = styled.div`
+  width: 328px;
+  height: 112px;
+  border-radius: 8px;
+  border: solid 1px lightgray;
+`
+
+export const Rectangle2 = styled.div`
+  width: 50px;
+  height: 20px;
+  /* margin: 7px 0 0 8px; */
+  padding: 8px 23px 9px 24px;
+  border-radius: 8px;
+  border: solid 1px #e02020;
+  float: right;
+`
+
+export const FoodImage = styled.div`
+  width: 96px;
+  height: 112px;
+  margin: 0 16px 0 0;
+  object-fit: contain;
+  background-image: url("https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/95588246-1173-4513-89DA-A6107AFECF60.png")
+
+`

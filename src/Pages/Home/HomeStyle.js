@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 export const DivContent = styled.div`
-display: flex;
-flex-direction: column;
-font-size: 1.5rem;
-align-items: center;
-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  align-items: center;
+  width: 100vw;
+
 `
 export const Header = styled.div`
   width: 360px;
@@ -66,8 +67,44 @@ export const FilterKey = styled.p`
   }
   diplay: flex;
 `;
+
 export const RestaurantContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
+
+export const Filtro = styled.div`
+  width: 360px;
+  height: 42px;
+  margin: 8px 0 0;
+  padding: 12px 0 12px 16px;
+`
+
+export const TextCopy = styled.span`
+  width: 87px;
+  height: 18px;
+  margin: 0 8px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  text-align: center;
+  color: #000000;
+`
+
+export const popUp = styled.div`
+  width: 360px;
+  height: 118px;
+  margin: 99px 0 49px;
+  padding: 24px;
+  background-color: #5cb646;
+`
+
+
+
+
+
