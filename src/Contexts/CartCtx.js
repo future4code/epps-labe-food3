@@ -6,9 +6,7 @@ export default function CartProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [payment, setPayment] = useState("");
   return (
-    <CartCtx.Provider
-      value={{ products, setProdutcts: setProducts, payment, setPayment }}
-    >
+    <CartCtx.Provider value={{ products, setProducts, payment, setPayment }}>
       {children}
     </CartCtx.Provider>
   );
@@ -16,11 +14,41 @@ export default function CartProvider({ children }) {
 
 export const useCartCtx = () => {
   const context = useContext(CartCtx);
-  const { products, setProdutcts, payment, setPayment } = context;
+  const { products, setProducts, payment, setPayment } = context;
 
-  const addCart = (pdt) => {
-    setProdutcts([...products, { id: pdt.id, quantity: pdt.quantity }]);
+  const addCart = (newPdt) => {
+    const exists = () => {
+      let res = false;
+      for (const pdt of products) {
+        if (pdt.id === newPdt.id) {
+          res = true;
+          break;
+        } else {
+          res = false;
+        }
+      }
+      return res;
+    };
+
+    if (exists()) {
+      const newArray = products.map((pdt) => {
+        if (pdt.id === newPdt.id) {
+          const pdtChanged = {
+            ...pdt,
+            quantity: (pdt.quantity += newPdt.quantity),
+          };
+          return pdtChanged;
+        } else {
+          return pdt;
+        }
+      });
+      setProducts(newArray);
+    } else {
+      setProducts([...products, newPdt]);
+    }
+
+    console.log(exists(), products);
   };
 
-  return { products, setProdutcts, payment, setPayment, addCart };
+  return { products, setProducts, payment, setPayment, addCart };
 };

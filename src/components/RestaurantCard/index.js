@@ -117,7 +117,9 @@ export default function RestaurantCard() {
                   <CardPrice>
                     <p>R$ {pdt.price.toFixed(2)}</p>
                     <CardActions>
-                      <ButtonAdd onClick={() => addCart(pdt)}>
+                      <ButtonAdd
+                        onClick={() => addCart({ ...pdt, quantity: 1 })}
+                      >
                         adicionar
                       </ButtonAdd>
                     </CardActions>
