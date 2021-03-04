@@ -9,7 +9,7 @@ import Profile from "../Pages/Profile/MyProfile/MyProfile";
 import { CartPage } from "../Pages/Cart";
 import EditProfile from "../Pages/Profile/MyProfile/EditProfile";
 import EditAddres from "../Pages/Profile/MyProfile/EditAddres";
-import StartUp from '../Pages/StartUp/StartUp';
+import Loading from '../Pages/Loading/Loading'
 import Popup from "../components/RestaurantCard/Popup";
 
 
@@ -19,7 +19,7 @@ export default function Router() {
       <Switch>
       
         <Route exact path="/">
-          <StartUp />
+          <Loading />
         </Route>
 
         <Route exact path="/login">
