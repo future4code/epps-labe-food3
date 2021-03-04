@@ -22,19 +22,8 @@ const SignUpForm = () => {
   const [message, setMessage] = useState("");
   const [score, setScore] = useState(0);
   const [type, settype] = useState("password");
-  const [time, setTime] = useState(0.1 * 60); //25 minutos em segundos
-  const [count, setCount] = useState(false);
-  const [isActive, setIsActive] = useState(false); //vai checar se o estado está ativo ou nao ou pausado vai comecar inativo
 
-  
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log('This will run after 3 second!')
-      goToFeed(history)
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
+ 
   const goBack = () =>{
     history.goBack()
 }
@@ -200,13 +189,12 @@ const showPassword = () => {
       />
       
       {type==="password" ? (
-            <img src={hidePassword} className="senha" onClick={showPassword}/>
+            <img src={hidePassword}  onClick={showPassword}/>
         ):(
-          <img src={showSenha} className="senha" onClick={showPassword}/>
+          <img src={showSenha}  onClick={showPassword}/>
         )}
       
-      {/* <button onClick={handleSignUp} className="Rectangle">Criar</button> */}
-      {/* <button onClick={() => startCountDown}>Increment</button> */}
+      <button onClick={handleSignUp} className="Rectangle">Criar</button>
     </>
   );
 };
