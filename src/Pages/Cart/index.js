@@ -16,8 +16,13 @@ import {
   PaymentMethodText,
   DivBorder,
   CheckBox,
+  FoodContainer,
+  Rectangle2,
+  FoodImage
 } from "./styled";
 import Buttons from '../../components/Buttons';
+import Footer from "../../components/Footer/Footer";
+
 
 export const CartPage = () => {
   
@@ -28,9 +33,19 @@ export const CartPage = () => {
         <AdressDelivery>Endereço de entrega</AdressDelivery>
         
           <p>Buscando endereço...</p>
+    
       </AdressContainer>
 
       <Title>Carrinho vazio</Title>
+      
+      {/* container teste para receber os produtos */}
+      <FoodContainer> 
+        <img src="https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/95588246-1173-4513-89DA-A6107AFECF60.png" width="100px" height="100px"/>
+        <Rectangle2>
+          <p>Remover</p>
+        </Rectangle2>
+       
+      </FoodContainer>
      
       <ShippingText>Frete R$</ShippingText>
       <SubtotalPrice>
@@ -59,6 +74,8 @@ export const CartPage = () => {
         </FormControl>
       </CheckBox>
       <Buttons text="CONFIRMAR" onClick={""}></Buttons>
+      <Footer />
+
     </CartContainer>
     
   );

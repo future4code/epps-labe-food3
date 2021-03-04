@@ -17,15 +17,15 @@ const Footer = () => {
   const history = useHistory();
 
   const goToHomepage = () => {
-    history.push("./home");
+    history.push("/home");
   };
 
   const goToCart = () => {
-    history.push("./cart");
+    history.push("/cart");
   };
 
   const goToProfile = () => {
-    history.push("./profile");
+    history.push("/profile");
   };
 
   return (
