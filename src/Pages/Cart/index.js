@@ -1,4 +1,7 @@
-import React from 'react'
+import React from "react";
+import { useCartCtx } from "../../Contexts/CartCtx";
+
+/* DESIGN */
 import {
   FormControl,
   FormControlLabel,
@@ -18,35 +21,37 @@ import {
   CheckBox,
   FoodContainer,
   Rectangle2,
-  FoodImage
+  FoodImage,
 } from "./styled";
-import Buttons from '../../components/Buttons';
+import Buttons from "../../components/Buttons";
 import Footer from "../../components/Footer/Footer";
-
+import FoodCard from "../../components/FoodCard/FoodCard";
 
 export const CartPage = () => {
-  
+  const { products, setProdutcts, payment, setPayment, addCart } = useCartCtx();
   return (
-      
     <CartContainer>
       <AdressContainer>
         <AdressDelivery>Endereço de entrega</AdressDelivery>
-        
-          <p>Buscando endereço...</p>
-    
+
+        <p>Buscando endereço...</p>
       </AdressContainer>
 
       <Title>Carrinho vazio</Title>
-      
+
       {/* container teste para receber os produtos */}
-      <FoodContainer> 
-        <img src="https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/95588246-1173-4513-89DA-A6107AFECF60.png" width="100px" height="100px"/>
-        <Rectangle2>
-          <p>Remover</p>
-        </Rectangle2>
-       
-      </FoodContainer>
-     
+      {products &&
+        products.map((pdt) => {
+          return (
+            <FoodCard
+              photoUrl={pdt.photoUrl}
+              name={pdt.name}
+              description={pdt.description}
+              price={pdt.price}
+            />
+          );
+        })}
+
       <ShippingText>Frete R$</ShippingText>
       <SubtotalPrice>
         <p>SUBTOTAL</p>
@@ -56,10 +61,7 @@ export const CartPage = () => {
       <PaymentMethodText>Forma de pagamento</PaymentMethodText>
       <CheckBox>
         <FormControl component="fieldset" required={true}>
-          <RadioGroup
-            name="metodoDePag"
-            value=""
-          >
+          <RadioGroup name="metodoDePag" value="">
             <FormControlLabel
               value="dinheiro"
               control={<Radio />}
@@ -75,8 +77,6 @@ export const CartPage = () => {
       </CheckBox>
       <Buttons text="CONFIRMAR" onClick={""}></Buttons>
       <Footer />
-
     </CartContainer>
-    
   );
 };

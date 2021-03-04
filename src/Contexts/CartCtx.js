@@ -7,7 +7,7 @@ export default function CartProvider({ children }) {
   const [payment, setPayment] = useState("");
   return (
     <CartCtx.Provider
-      value={{ products, setProdutcts: setProducts, payment, setPayment }}
+      value={{ products, setProducts, payment, setPayment }}
     >
       {children}
     </CartCtx.Provider>
@@ -16,11 +16,22 @@ export default function CartProvider({ children }) {
 
 export const useCartCtx = () => {
   const context = useContext(CartCtx);
-  const { products, setProdutcts, payment, setPayment } = context;
+  const { products, setProducts, payment, setPayment } = context;
 
   const addCart = (pdt) => {
-    setProdutcts([...products, { id: pdt.id, quantity: pdt.quantity }]);
+    setProducts([
+      ...products,
+      {
+        id: pdt.id,
+        quantity: pdt.quantity,
+        photoUrl: pdt.photoUrl,
+        price: pdt.price,
+        description: pdt.description,
+        name: pdt.name
+      },
+    ]);
+    console.log(products);
   };
 
-  return { products, setProdutcts, payment, setPayment, addCart };
+  return { products, setProducts, payment, setPayment, addCart };
 };
