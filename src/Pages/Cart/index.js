@@ -21,9 +21,11 @@ import {
 } from "./styled";
 import Buttons from '../../components/Buttons';
 import Footer from "../../components/Footer/Footer";
+import { useHistory } from 'react-router-dom';
 
 
 export const CartPage = () => {
+    const history = useHistory();
   
   return (
       

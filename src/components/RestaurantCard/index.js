@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { getDetailRestaurantURL, headers } from "../../Constants/Urls";
 import { useCartCtx } from "../../Contexts/CartCtx";
+import back from '../../Assets/back.png';
 
 //DESIGN
 import Card from "@material-ui/core/Card";
@@ -12,6 +13,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import {
+  Header,
+  Title,  
   TextTitle,
   MainCard,
   MainCardContent,
@@ -38,6 +41,7 @@ const useStyles = makeStyles({
 });
 
 export default function RestaurantCard() {
+  const history = useHistory();  
   const classes = useStyles();
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState([]);
@@ -58,8 +62,16 @@ export default function RestaurantCard() {
     getDetailRestaurant();
   }, []);
 
+  const goBack = () =>{
+    history.goBack()
+  }
+
   return (
     <BoxCard>
+          <img src={back} onClick={goBack}/>
+      <Header>
+        <Title>Restaurantes</Title>
+      </Header>  
       <Card>
         <CardMedia
           style={{ borderRadius: "10px 10px 0 0" }}
