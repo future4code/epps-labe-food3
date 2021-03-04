@@ -17,15 +17,37 @@ export const useCartCtx = () => {
   const { products, setProducts, payment, setPayment } = context;
 
   const addCart = (newPdt) => {
-    
-    products.forEach((pdt) => {
-      if (pdt === newPdt) {
-        pdt.quantity += newPdt.quantity;
+    const exists = () => {
+      let res = false;
+      for (const pdt of products) {
+        if (pdt.id === newPdt.id) {
+          res = true;
+          break;
+        } else {
+          res = false;
+        }
       }
-    });
+      return res;
+    };
 
-    setProducts(products);
-    console.log(products);
+    if (exists()) {
+      const newArray = products.map((pdt) => {
+        if (pdt.id === newPdt.id) {
+          const pdtChanged = {
+            ...pdt,
+            quantity: (pdt.quantity += newPdt.quantity),
+          };
+          return pdtChanged;
+        } else {
+          return pdt;
+        }
+      });
+      setProducts(newArray);
+    } else {
+      setProducts([...products, newPdt]);
+    }
+
+    console.log(exists(), products);
   };
 
   return { products, setProducts, payment, setPayment, addCart };

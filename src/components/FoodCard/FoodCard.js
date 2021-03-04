@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 //DESIGN
 import Card from "@material-ui/core/Card";
@@ -33,34 +33,30 @@ const useStyles = makeStyles({
   transition: "center",
 });
 
-export default function FoodCard (props) {
+export default function FoodCard(props) {
   return (
     <MainCard>
-    <ImagesFood src={props.photoUrl} />
+      <ImagesFood src={props.photoUrl} />
 
-    <MainCardContent>
-      <TextTitle gutterBottom variant="h5" component="h2">
-        {" "}
-        {props.name}{" "}
-      </TextTitle>
-      <Typography
-        variant="body2"
-        color="textSecondary"
-        component="p"
-      >
-        {" "}
-        {props.description}{" "}
-      </Typography>
+      <MainCardContent>
+        <TextTitle gutterBottom variant="h5" component="h2">
+          {" "}
+          {props.name}{" "}
+        </TextTitle>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {" "}
+          {props.description}{" "}
+        </Typography>
 
-      <CardPrice>
-        <p>R$ {props.price.toFixed(2)}</p>
-        <CardActions>
-          <ButtonRemove onClick={props.onClickButton}>
-            {props.nameButton === "add" ? "Adicionar" : "Remover"}
-          </ButtonRemove>
-        </CardActions>
-      </CardPrice>
-    </MainCardContent>
-  </MainCard>
+        <CardPrice>
+          <p>R$ {props.price && props.price.toFixed(2)}</p>
+          <CardActions>
+            <ButtonRemove onClick={props.onClickButton}>
+              {props.nameButton === "add" ? "Adicionar" : "Remover"}
+            </ButtonRemove>
+          </CardActions>
+        </CardPrice>
+      </MainCardContent>
+    </MainCard>
   );
 }
