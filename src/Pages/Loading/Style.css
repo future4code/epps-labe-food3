@@ -1,9 +1,14 @@
 * {
     margin: 0px;
     padding: 0px;
+    
 }
 
-.Logo_FutureEats {
+
+
+
+
+/* .Logo_FutureEats {
     width: 126px;
     height: 65px;
     object-fit: contain;
@@ -11,5 +16,6 @@
 
 .LoadingContainer{
     /* width: 20%; */
-    width: 100%;
-}
+    /* width: 100%;
+} */
+
