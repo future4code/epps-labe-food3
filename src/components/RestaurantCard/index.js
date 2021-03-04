@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { getDetailRestaurantURL, headers } from "../../Constants/Urls";
 import { useCartCtx } from "../../Contexts/CartCtx";
 
 //DESIGN
@@ -22,6 +21,7 @@ import {
   BoxCard,
   TextP,
 } from "./styled";
+import { getDetailRestaurant } from "../../requests/user";
 
 const useStyles = makeStyles({
   root: {
@@ -42,20 +42,12 @@ export default function RestaurantCard() {
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState([]);
   const { products, addCart } = useCartCtx();
-  const getDetailRestaurant = () => {
-    axios
-      .get(getDetailRestaurantURL(id), headers)
-      .then((res) => {
-        console.log(res.data.restaurant);
-        setRestaurant(res.data.restaurant);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  };
+  
+  console.log(restaurant)
+  
 
   useEffect(() => {
-    getDetailRestaurant();
+    getDetailRestaurant(id, setRestaurant);
   }, []);
 
   return (

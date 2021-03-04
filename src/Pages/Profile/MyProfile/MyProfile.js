@@ -6,40 +6,18 @@ import { useHistory } from "react-router-dom";
 import caneta from "../../../Assets/edit@2x.png";
 import { getProfile } from "../../../requests/user";
 import Footer from "../../../components/Footer/Footer";
+import useForm from "../../../Hooks/useForm";
 
 const MyProfile = () => {
   const history = useHistory();
-  const [profile, setprofile] = useState({});
+  const [profile, setProfile] = useState({});
 
 
   useEffect(() => {
-    getProfile();
+    getProfile(setProfile);
   }, []);
 
-  const getProfile = () => {
-    const headers = {
-      headers: {
-        Auth: localStorage.getItem("token"),
-      },
-    };
-
-    axios
-      .get(
-        "https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/profile",
-        headers
-      )
-      .then((res) => {
-        setprofile(res.data.user);
-        alert("carregado com sucesso");
-        // console.log(res.data)
-        console.log("PROFILE AQUII", profile);
-        console.log(profile);
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
-  };
-
+ 
   return (
     <div>
           <div className="text">
