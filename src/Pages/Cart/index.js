@@ -14,7 +14,6 @@ import {
   SubtotalPrice,
   TotalPrice,
   PaymentMethodText,
-  DivBorder,
   CheckBox,
   FoodContainer,
   Rectangle2,
@@ -54,7 +53,7 @@ export const CartPage = () => {
       </SubtotalPrice>
 
       <PaymentMethodText>Forma de pagamento</PaymentMethodText>
-      <CheckBox>
+      <CheckBox  >
         <FormControl component="fieldset" required={true}>
           <RadioGroup
             name="metodoDePag"
@@ -62,12 +61,12 @@ export const CartPage = () => {
           >
             <FormControlLabel
               value="dinheiro"
-              control={<Radio />}
+              control={<Radio color="black" />}
               label="Dinheiro"
             />
             <FormControlLabel
               value="credito"
-              control={<Radio />}
+              control={<Radio color="black" />}
               label="Cartão de crédito"
             />
           </RadioGroup>
