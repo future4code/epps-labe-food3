@@ -15,22 +15,14 @@ import styled from "styled-components";
 import showSenha from '../../Assets/senha.png';
 import hidePassword from "../../Assets/senha-2.png";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { handleLogin } from "../../requests/user";
 
 const LoginForm = () => {
   const history = useHistory();
   const [form, onChange, clear] = useForm({ email: "", password: "" });
   const [type, settype] = useState("password");
   
-  const theme = createMuiTheme({
-    palette: {
-        primary: {
-            main: '#F63867',
-        },
-        secondary: {
-            main: '#F63867',
-        },
-    },
-})
+
 
   const showPassword = () => {
     if (type === "password") {
@@ -41,37 +33,12 @@ const LoginForm = () => {
     }
   }
   
-
-  const handleLogin = () => {
-    axios
-      .post(
-        "https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/login",
-        form
-      )
-      .then((res) => {
-        alert("ok");
-        // console.log(res.data);
-        // console.log(res.data.user.name)
-        localStorage.setItem("token", res.data.token);
-        console.log(res.data.token);
-
-        if (res.data.user.hasAddress === false) {
-          alert(
-            `Olá ${res.data.user.name} vc nao possui um endereco associado, estamos te redirecionando..`
-          );
-          goToAdress(history);
-        } else {
-          alert("BEM VINDO");
-          // goToFeed(history);
-          goToFeed(history);
-        }
-        clear();
-      })
-      .catch((error) => {
-        alert("deu erro no login");
-        console.log(error.response);
-      });
-  };
+  const clickSubmittion = (event) => {
+    event.preventDefault();
+    console.log(form);
+    handleLogin(form, clear, history)
+  }
+  
 
   return (
     <>
@@ -81,24 +48,19 @@ const LoginForm = () => {
         </div>
 
         <h1 className="Text">Entrar</h1>
-        <ThemeProvider theme={theme}>
         <TextFieldStyled
           color="primary"
           name="email"
           value={form.email}
           onChange={onChange}
-          id="outlined-basic"
           label="e-mail"
           variant="outlined"
           placeholder="email@email.com"
           className="Input_nolocus"
-          
           required
-          // error={CheckEmail()}
-          // helperText={CheckEmail()?'Digite um email valido!':''}
+   
         />
         <TextFieldStyled
-          color="secondary"
           name="password"
           value={form.password}
           onChange={onChange}
@@ -108,13 +70,8 @@ const LoginForm = () => {
           className="Input_nolocus"
           pattern="[.\s\w]{6,}"
           type={type}
-          
           required
-          // id="senha" onClick={CheckPassword}
         />
-        </ThemeProvider>
-        {/* <img src={showSenha} className="senha" onClick={showPassword} /> */}
-        
 
         {type==="password" ? (
             <img src={hidePassword} onClick={showPassword}/>
@@ -122,8 +79,7 @@ const LoginForm = () => {
           <img src={showSenha} onClick={showPassword}/>
         )}
         
-  
-        <button onClick={handleLogin} className="Rectangle">ENTRAR</button>
+        <button onClick={clickSubmittion} className="ButtonDesign">ENTRAR</button>
       </div>
     </>
   );
