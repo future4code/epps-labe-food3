@@ -4,7 +4,6 @@
 }
 
 
-
 button {
     width: 360px;
     height: 42px;
@@ -14,14 +13,6 @@ button {
     border: none;
     margin: auto;
   }
-  
-  /* .Input_locus {
-    width: 360px;
-    height: 72px;
-    margin: 16px 0 0;
-    padding: 0 16px 8px;
-  } */
-  
   
   
   label {
@@ -76,17 +67,7 @@ button {
     object-fit: contain;
   }
   
-  #senha{
-    width: 24px;
-    height: 24px;
-    margin: 0 0 0 8px;
-    object-fit: contain;
-    background-image: url(../../Assets/senha.png);
-    background-repeat: no-repeat;
-    /* background-position-y: center;
-    background-position-x: 400%; */
-    margin-left: 80vw;
-  }
+
   
   label {
     width: 264px;
@@ -101,4 +82,4 @@ button {
     color: #000000;
   }
   
-  
+ 

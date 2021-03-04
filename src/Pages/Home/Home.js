@@ -79,12 +79,12 @@ export default function Home() {
         {/* janela apos o pedido ser feito */}
         {/* pode comentar essa janela ate estar funcional*/}
 
-        <div className="popUp">
+        {/* <div className="popUp">
           <img src={clock} className="clock"/>
           <p className="Pedido-em-andamento">Pedido em andamento</p>
           <p className="Bullguer-Vila-Madale">Bullguer Vila Madalena</p>
           <p className="Bullguer-Vila-Madale">Subtotal R$67,00</p>
-        </div>
+        </div> */}
 
 
         <RestaurantContainer>
