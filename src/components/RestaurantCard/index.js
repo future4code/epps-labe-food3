@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import axios from "axios";
 import back from "../../Assets/back.png";
 
 //DESIGN
@@ -47,7 +46,6 @@ export default function RestaurantCard() {
   const [restaurant, setRestaurant] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState({});
   const [showPopup, setshowPopup] = useState(false);
-  
 
   useEffect(() => {
     getDetailRestaurant(id, setRestaurant);
@@ -121,7 +119,11 @@ export default function RestaurantCard() {
                   <CardPrice>
                     <p>R$ {pdt.price.toFixed(2)}</p>
                     <CardActions>
-                      <ButtonAdd onClick={() => clickAddPdt(pdt)}>
+                      <ButtonAdd
+                        onClick={() => {
+                          clickAddPdt(pdt);
+                        }}
+                      >
                         adicionar
                       </ButtonAdd>
                     </CardActions>
@@ -135,7 +137,8 @@ export default function RestaurantCard() {
       <Popup
         trigger={showPopup}
         setTrigger={() => setshowPopup(false)}
-        product={selectedProduct}
+        product={{ ...selectedProduct, shipping: restaurant.shipping }}
+        restaurant={restaurant}
       />
     </BoxCard>
   );

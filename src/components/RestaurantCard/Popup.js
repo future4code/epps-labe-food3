@@ -10,7 +10,7 @@ import {
 } from "./styled";
 
 const Popup = (props) => {
-  const { addCart } = useCartCtx();
+  const { addCart, addShipping } = useCartCtx();
   const [selectedValue, setSelectedValue] = useState(1);
 
   const changeSelectedValue = (e) => {
@@ -40,6 +40,7 @@ const Popup = (props) => {
           onClick={() => {
             props.setTrigger();
             addCart({ ...props.product, quantity: parseInt(selectedValue) });
+            addShipping(props.restaurant);
           }}
         >
           ADICIONAR AO CARRINHO

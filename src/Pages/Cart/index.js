@@ -26,8 +26,7 @@ import { useHistory } from "react-router-dom";
 
 export const CartPage = () => {
   const [totalPrice, setTotalPrice] = useState(0);
-  const [totalShipping, setTotalShipping] = useState(0);
-  const { products, setProducts } = useCartCtx();
+  const { products, setProducts, shipping } = useCartCtx();
   const history = useHistory();
 
   const removeItem = (item) => {
@@ -71,7 +70,13 @@ export const CartPage = () => {
           );
         })}
 
-      <ShippingText>Frete R$ {totalShipping.toFixed(2)}</ShippingText>
+      <ShippingText>
+        Frete R${" "}
+        {shipping &&
+          shipping.reduce(function (a, b) {
+            return a + b.shipping;
+          },0).toFixed(2)}
+      </ShippingText>
       <SubtotalPrice>
         <p>SUBTOTAL</p>
         <TotalPrice>R$ {totalPrice.toFixed(2)}</TotalPrice>
