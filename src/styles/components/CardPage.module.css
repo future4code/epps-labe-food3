@@ -1,22 +1,23 @@
 
 .CartContainer {
-  width: 100vw;
-  max-width: 420px;
+  /* width: 100vw;
+  max-width: 420px; */
+  margin: auto;
 }
 
 .AdressContainer {
-  width: 100vw;
+  /* width: 100%; */
   max-width: 420px;
-  height: 76px;
+  height: 100%;
   margin: 1px 0 8px;
   padding: 16px;
   background-color: #eeeeee;
 }
 
 .AdressDelivery {
-  width: 100vw;
+  /* width: 100vw; */
   max-width: 420px;
-  height: 18px;
+  /* height: 18px; */
   margin: 0 0 8px;
   font-size: 16px;
   letter-spacing: -0.39px;
@@ -24,9 +25,9 @@
 }
 
 .Title {
-  width: 100vw;
+  /* width: 100vw; */
   max-width: 420px;
-  height: 42px;
+  /* height: 42px; */
   margin: 18px 0 33px;
   padding: 12px 32px;
   font-size: 16px;
@@ -54,7 +55,7 @@
 }
 
 .PaymentMethodText {
-  width: 100vw;
+  /* width: 100vw; */
   max-width: 420px;
   height: 18px;
   margin: 24px 16px 8px;
@@ -69,14 +70,14 @@
 }
 
 .FoodContainer {
-  width: 328px;
+  /* width: 328px; */
   height: 112px;
   border-radius: 8px;
   border: solid 1px lightgray;
 }
 
 .Rectangle2 {
-  width: 50px;
+  /* width: 50px; */
   height: 20px;
   padding: 8px 23px 9px 24px;
   border-radius: 8px;

@@ -14,7 +14,7 @@ import FoodCard from "../../components/FoodCard/FoodCard";
 import { useHistory } from "react-router-dom";
 import style from '../../styles/components/CardPage.module.css';
 
-export const CartPage = () => {
+const CartPage = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const { products, setProducts, shipping } = useCartCtx();
   const [payment, setPayment] = useState("");
@@ -98,4 +98,6 @@ export const CartPage = () => {
       <Footer />
     </div>
   );
-};
+}
+
+export default CartPage;
