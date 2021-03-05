@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { useCartCtx } from "../../Contexts/CartCtx";
-import back from '../../Assets/back.png';
+import back from "../../Assets/back.png";
 
 //DESIGN
 import Card from "@material-ui/core/Card";
@@ -13,7 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Header,
-  TitleHeader,  
+  TitleHeader,
   TextTitle,
   MainCard,
   MainCardContent,
@@ -25,6 +25,7 @@ import {
   TextP,
 } from "./styled";
 import { getDetailRestaurant } from "../../requests/user";
+import Popup from "./Popup";
 
 const useStyles = makeStyles({
   root: {
@@ -41,29 +42,27 @@ const useStyles = makeStyles({
 });
 
 export default function RestaurantCard() {
-  const history = useHistory();  
+  const history = useHistory();
   const classes = useStyles();
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState([]);
-  const { products, addCart } = useCartCtx();
-  
-  console.log(restaurant)
-  
+  const [showPopup, setshowPopup] = useState(true);
+  const { addCart } = useCartCtx();
 
   useEffect(() => {
     getDetailRestaurant(id, setRestaurant);
   }, []);
 
-  const goBack = () =>{
-    history.goBack()
-  }
+  const goBack = () => {
+    history.goBack();
+  };
 
   return (
     <BoxCard>
-          <img src={back} onClick={goBack}/>
+      <img src={back} onClick={goBack} />
       <Header>
         <TitleHeader>Restaurantes</TitleHeader>
-      </Header>  
+      </Header>
       <Card>
         <CardMedia
           style={{ borderRadius: "10px 10px 0 0" }}
@@ -118,7 +117,7 @@ export default function RestaurantCard() {
                     <p>R$ {pdt.price.toFixed(2)}</p>
                     <CardActions>
                       <ButtonAdd
-                        onClick={() => addCart({ ...pdt, quantity: 1 })}
+                        onClick={() => setshowPopup(true)}
                       >
                         adicionar
                       </ButtonAdd>
@@ -129,6 +128,8 @@ export default function RestaurantCard() {
             );
           })}
       </Card>
+
+      <Popup trigger={showPopup} setTrigger={() => setshowPopup(false)} />
     </BoxCard>
   );
 }

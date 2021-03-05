@@ -1,9 +1,15 @@
-import React from 'react'
-import { BoxContainer, BoxPopupAdd, SelectQtd, TitleBox, TitleText, ButtonP  } from "./styled";
+import React from "react";
+import {
+  BoxContainer,
+  BoxPopupAdd,
+  SelectQtd,
+  TitleBox,
+  TitleText,
+  ButtonP,
+} from "./styled";
 
-const Popup = () => {
-  
-  return (
+const Popup = (props) => {
+  return props.trigger ? (
     <BoxPopupAdd>
       <BoxContainer>
         <TitleBox>
@@ -13,12 +19,13 @@ const Popup = () => {
         <SelectQtd>
           <option value="0"></option>
         </SelectQtd>
-        <ButtonP>
-          ADICIONAR AO CARRINHO
-        </ButtonP>
+        <ButtonP onClick={props.setTrigger}>ADICIONAR AO CARRINHO</ButtonP>
+
       </BoxContainer>
     </BoxPopupAdd>
-  );
+  ) : 
+    ""
+  
 };
 
 export default Popup;
