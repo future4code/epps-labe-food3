@@ -39,12 +39,12 @@ const MainDiv = styled.div`
 const Loading = () => {
     const history = useHistory();
     
-//  useEffect(() => {
-//      const timer = setTimeout(() => {          
-//        goToLogin(history)
-//      }, 5000);
-//      return () => clearTimeout(timer);
-//    }, []);
+ useEffect(() => {
+     const timer = setTimeout(() => {          
+       goToLogin(history)
+     }, 5000);
+     return () => clearTimeout(timer);
+   }, []);
       
       return(
         <MainDiv>
