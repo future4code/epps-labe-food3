@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
-import { useCartCtx } from "../../Contexts/CartCtx";
 import back from "../../Assets/back.png";
 
 //DESIGN
@@ -46,12 +45,18 @@ export default function RestaurantCard() {
   const classes = useStyles();
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState([]);
-  const [showPopup, setshowPopup] = useState(true);
-  const { addCart } = useCartCtx();
+  const [selectedProduct, setSelectedProduct] = useState({});
+  const [showPopup, setshowPopup] = useState(false);
+  
 
   useEffect(() => {
     getDetailRestaurant(id, setRestaurant);
   }, []);
+
+  const clickAddPdt = (pdt) => {
+    setshowPopup(true);
+    setSelectedProduct(pdt);
+  };
 
   const goBack = () => {
     history.goBack();
@@ -116,9 +121,7 @@ export default function RestaurantCard() {
                   <CardPrice>
                     <p>R$ {pdt.price.toFixed(2)}</p>
                     <CardActions>
-                      <ButtonAdd
-                        onClick={() => setshowPopup(true)}
-                      >
+                      <ButtonAdd onClick={() => clickAddPdt(pdt)}>
                         adicionar
                       </ButtonAdd>
                     </CardActions>
@@ -129,7 +132,11 @@ export default function RestaurantCard() {
           })}
       </Card>
 
-      <Popup trigger={showPopup} setTrigger={() => setshowPopup(false)} />
+      <Popup
+        trigger={showPopup}
+        setTrigger={() => setshowPopup(false)}
+        product={selectedProduct}
+      />
     </BoxCard>
   );
 }
