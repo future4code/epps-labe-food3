@@ -1,5 +1,5 @@
 import React from 'react'
-import RestaurantCard from '../../components/RestaurantCard'
+import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
 import Footer from "../../components/Footer/Footer";
 
 

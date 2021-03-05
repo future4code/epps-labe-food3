@@ -1,6 +1,5 @@
-import styled from "styled-components";
 
-export const FooterCard = styled.div`
+.FooterCard {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -11,40 +10,40 @@ export const FooterCard = styled.div`
   background-color: white;
   display: flex;
   justify-content: space-around;
-`;
+}
 
-export const Item1 = styled.div`
+.Item1 {
   width: 120px;
   height: 49px;
   padding: 11px 46px 11px 47px;
-`;
+}
 
-export const Item2 = styled.div`
+.Item2 {
   width: 120px;
   height: 49px;
   padding: 10px 46px 10px 47px;
-`;
+}
 
-export const Item3 = styled.div`
+.Item3 {
   width: 120px;
   height: 49px;
   padding: 10px 46px 9px 47px;
-`;
+}
 
-export const HomepageIcon = styled.img`
+.HomepageIcon {
   width: 27px;
   height: 27px;
   object-fit: contain;
-`;
+}
 
-export const ShoppingCartIcon = styled.img`
+.ShoppingCartIcon {
   width: 27px;
   height: 29px;
   object-fit: contain;
-`;
+}
 
-export const AvatarIcon = styled.img`
+.AvatarIcon {
   width: 27px;
   height: 30px;
   object-fit: contain;
-`;
+}

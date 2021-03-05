@@ -4,7 +4,7 @@ import LoginPage from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Address from "../Pages/Profile/Address/Address";
 import Home from "../Pages/Home/Home";
-import RestaurantPage from "../Pages/Restaurant";
+import RestaurantPage from "../Pages/Restaurant/Restaurant";
 import Profile from "../Pages/Profile/MyProfile/MyProfile";
 import { CartPage } from "../Pages/Cart";
 import EditProfile from "../Pages/Profile/MyProfile/EditProfile";
