@@ -17,6 +17,7 @@ import style from '../../styles/components/CardPage.module.css';
 export const CartPage = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const { products, setProducts, shipping } = useCartCtx();
+  const [payment, setPayment] = useState("");
   const history = useHistory();
 
   const removeItem = (item) => {
@@ -33,6 +34,10 @@ export const CartPage = () => {
   useEffect(() => {
     setTotalPrice(price);
   }, products);
+
+  const onChangePayment = (event) => {
+    setPayment(event.target.value);
+  };
 
   return (
     <div className={style.CartContainer}>
@@ -75,7 +80,7 @@ export const CartPage = () => {
       <p className={style.PaymentMethodText}>Forma de pagamento</p>
       <div className={style.CheckBox}>
         <FormControl component="fieldset" required={true}>
-          <RadioGroup name="metodoDePag" value="">
+          <RadioGroup name="payment" value={payment} onChange={onChangePayment}>
             <FormControlLabel
               value="dinheiro"
               control={<Radio color="black" />}
