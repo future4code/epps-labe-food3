@@ -50,8 +50,9 @@ export default function FoodCard(props) {
 
         <CardPrice>
           <p>R$ {props.price && props.price.toFixed(2)}</p>
+          <p>x {props.quantity && props.quantity} units</p>
           <CardActions>
-            <ButtonRemove onClick={props.onClickButton}>
+            <ButtonRemove onClick={props.onClickButtonRemove}>
               {props.nameButton === "add" ? "Adicionar" : "Remover"}
             </ButtonRemove>
           </CardActions>
