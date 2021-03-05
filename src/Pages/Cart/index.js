@@ -8,21 +8,11 @@ import {
   Radio,
   RadioGroup,
 } from "@material-ui/core";
-import {
-  AdressDelivery,
-  AdressContainer,
-  CartContainer,
-  Title,
-  ShippingText,
-  SubtotalPrice,
-  TotalPrice,
-  PaymentMethodText,
-  CheckBox,
-} from "./styled";
 import Buttons from "../../components/Buttons";
 import Footer from "../../components/Footer/Footer";
 import FoodCard from "../../components/FoodCard/FoodCard";
 import { useHistory } from "react-router-dom";
+import style from '../../styles/components/CardPage.module.css';
 
 export const CartPage = () => {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -45,14 +35,14 @@ export const CartPage = () => {
   }, products);
 
   return (
-    <CartContainer>
-      <AdressContainer>
-        <AdressDelivery>Endereço de entrega</AdressDelivery>
+    <div className={style.CartContainer}>
+      <div className={style.AdressContainer}>
+        <p className={style.AdressDelivery}>Endereço de entrega</p>
 
         <p>Buscando endereço...</p>
-      </AdressContainer>
+      </div>
 
-      <Title>Carrinho vazio</Title>
+      <p className={style.Title}>Carrinho vazio</p>
 
       {/* container teste para receber os produtos */}
       {products &&
@@ -70,20 +60,20 @@ export const CartPage = () => {
           );
         })}
 
-      <ShippingText>
+      <p className={style.ShippingText}>
         Frete R${" "}
         {shipping &&
           shipping.reduce(function (a, b) {
             return a + b.shipping;
           },0).toFixed(2)}
-      </ShippingText>
-      <SubtotalPrice>
+      </p>
+      <div className={style.SubtotalPrice}>
         <p>SUBTOTAL</p>
-        <TotalPrice>R$ {totalPrice.toFixed(2)}</TotalPrice>
-      </SubtotalPrice>
+        <div className={style.TotalPrice}>R$ {totalPrice.toFixed(2)}</div>
+      </div>
 
-      <PaymentMethodText>Forma de pagamento</PaymentMethodText>
-      <CheckBox>
+      <p className={style.PaymentMethodText}>Forma de pagamento</p>
+      <div className={style.CheckBox}>
         <FormControl component="fieldset" required={true}>
           <RadioGroup name="metodoDePag" value="">
             <FormControlLabel
@@ -98,9 +88,9 @@ export const CartPage = () => {
             />
           </RadioGroup>
         </FormControl>
-      </CheckBox>
+      </div>
       <Buttons text="CONFIRMAR" onClick={""}></Buttons>
       <Footer />
-    </CartContainer>
+    </div>
   );
 };
