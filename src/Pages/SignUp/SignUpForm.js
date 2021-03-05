@@ -1,55 +1,48 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import useForm from "../../Hooks/useForm";
 import logo from "../../Assets/logo-future-eats-invert.png";
 import axios from "axios";
-import back from '../../Assets/back.png';
+import back from "../../Assets/back.png";
 import { useHistory } from "react-router-dom";
-import showSenha from '../../Assets/senha.png';
+import showSenha from "../../Assets/senha.png";
 import hidePassword from "../../Assets/senha-2.png";
-import {goToFeed} from '../../Routes/Coordinator';
-import {BoxCard} from './styled';
-import style from './Style.css';
+import styles from "../../styles/components/SignUp.module.css";
 
 const SignUpForm = () => {
+  const history = useHistory();
+  const [type, settype] = useState("password");
   const [form, onChange, clear] = useForm({
     name: "",
     email: "",
     cpf: "",
     password: "",
   });
-  const history = useHistory();
-  const [type, settype] = useState("password");
+  
+  const goBack = () => {
+    history.goBack();
+  };
 
- 
-  const goBack = () =>{
-    history.goBack()
-}
-
-const showPassword = () => {
-  if (type === "password") {
-    settype("text");
-  } else {
-    settype("password");
-    
-  }
-}
-
+  const showPassword = () => {
+    if (type === "password") {
+      settype("text");
+    } else {
+      settype("password");
+    }
+  };
 
   const CheckEmail = () => {
     const re = /\S+@\S+\.\S+/;
     return !re.test(String(form.email).toLowerCase());
-  };
+  }
 
-  const CheckPassword = () => {
-    if (type === "form.password") {
-      settype("text");
-    } else {
-      settype("form.password");
-    }
-  };
-
-
+  // const CheckPassword = () => {
+  //   if (type === "form.password") {
+  //     settype("text");
+  //   } else {
+  //     settype("form.password");
+  //   }
+  // }
 
   const handleSignUp = () => {
     axios
@@ -67,14 +60,12 @@ const showPassword = () => {
         console.log(error.response);
       });
   };
-  
-  
 
   return (
-    <>
-      <img src={back} className="back" onClick={goBack}/>
-      <img src={logo} alt="logo" />
-      <h1 className="Text">Cadastrar</h1>
+    <div className={styles.Main}>
+      <img src={back} className={styles.back} onClick={goBack} />
+      <img src={logo} alt="logo" className={styles.Logo_FutureEats_invert} />
+      <h1 className={styles.Text}>Cadastrar</h1>
 
       <TextField
         value={form.name}
@@ -83,18 +74,17 @@ const showPassword = () => {
         label="Nome"
         variant="outlined"
         placeholder="Nome e Sobrenome"
-        className="Input_nolocus"
+        className={styles.Input_nolocus}
         required
       />
-      
-      
+
       <TextField
         value={form.email}
         onChange={onChange}
         label="Email"
         variant="outlined"
         placeholder="email@email.com"
-        className="Input_nolocus"
+        className={styles.Input_nolocus}
         required
         error={CheckEmail()}
         name="email"
@@ -106,7 +96,7 @@ const showPassword = () => {
         label="CPF"
         variant="outlined"
         placeholder="000.000.000-0"
-        className="Input_nolocus"
+        className={styles.Input_nolocus}
         pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
         required
       />
@@ -117,7 +107,7 @@ const showPassword = () => {
         label="Senha"
         variant="outlined"
         placeholder="Mínimo 6 caracteres"
-        className="Input_nolocus"
+        className={styles.Input_nolocus}
         name="password"
         type={type}
         required
@@ -127,18 +117,20 @@ const showPassword = () => {
         label="Confirmar"
         variant="outlined"
         placeholder="Confirme a senha anterior"
-        className="Input_nolocus"
+        className={styles.Input_nolocus}
         type={type}
       />
-      
-      {type==="password" ? (
-            <img src={hidePassword}  onClick={showPassword}/>
-        ):(
-          <img src={showSenha}  onClick={showPassword}/>
-        )}
-      
-      <button onClick={handleSignUp} className="buttonDesign">Criar</button>
-    </>
+
+      {type === "password" ? (
+        <img src={hidePassword} onClick={showPassword} />
+      ) : (
+        <img src={showSenha} onClick={showPassword} />
+      )}
+
+      <button onClick={handleSignUp} className={styles.buttonDesign}>
+        Criar
+      </button>
+    </div>
   );
 };
 

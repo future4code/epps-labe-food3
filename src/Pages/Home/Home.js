@@ -21,6 +21,7 @@ import back from '../../Assets/back.png';
 import clock from '../../Assets/clock.png';
 import { useHistory } from "react-router-dom";
 import { getRestaurants } from "../../requests/user";
+import styles from '../../styles/components/Home.module.css'
 
 export default function Home() {
   const { restaurants, setRestaurants } = useRestaurants();
@@ -35,33 +36,33 @@ export default function Home() {
 }
 
   return (
-    <DivContent>
+    <div className={styles.DivContent}>
           <img src={back} onClick={goBack}/>
-      <Header>
-        <Title>FutureEats</Title>
-      </Header>
+      <div className={styles.Header}>
+        <p className={styles.Title}>FutureEats</p>
+      </div>
       
       <div>
-        <InputContainer>
+        <div className={styles.InputContainer}>
           <TextField
             variant="outlined"
             placeholder="Restaurante"
             className="senha"
             fullWidth
           />
-        </InputContainer>
+        </div>
         
         {/* filtro das tags do tipo de comida */}
-        <Filtro>
-          <TextCopy>Burguer</TextCopy>
-          <TextCopy>Asiática</TextCopy>
-          <TextCopy>Massas</TextCopy>
-          <TextCopy>Saudáveis</TextCopy>
-        </Filtro>
+        <div className={styles.Filtro}>
+          <span className={styles.TextCopy}>Burguer</span>
+          <span className={styles.TextCopy}>Asiática</span>
+          <span className={styles.TextCopy}>Massas</span>
+          <span className={styles.TextCopy}>Saudáveis</span>
+        </div>
         
-        <FilterContainer>
-          <FilterKey></FilterKey>
-        </FilterContainer>
+        <div className={styles.FilterContainer}>
+          <p className={styles.FilterKey}></p>
+        </div>
         
         {/* janela apos o pedido ser feito */}
         {/* pode comentar essa janela ate estar funcional*/}
@@ -74,7 +75,7 @@ export default function Home() {
         </div> */}
 
 
-        <RestaurantContainer>
+        <div className={styles.RestaurantContainer}>
           {restaurants &&
             restaurants.map((rest) => {
               return (
@@ -89,9 +90,9 @@ export default function Home() {
               );
             })}
             
-        </RestaurantContainer>
+        </div>
       </div>
       <Footer />
-    </DivContent>
+    </div>
   );
 }
