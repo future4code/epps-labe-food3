@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useCartCtx } from "../../Contexts/CartCtx";
-import {
-  BoxContainer,
-  BoxPopupAdd,
-  SelectQtd,
-  TitleBox,
-  TitleText,
-  ButtonP,
-} from "./styled";
+import style from '../../styles/components/RestaurantCard.module.css';
 
 const Popup = (props) => {
   const { addCart, addShipping } = useCartCtx();
@@ -18,13 +11,13 @@ const Popup = (props) => {
   };
 
   return props.trigger ? (
-    <BoxPopupAdd>
-      <BoxContainer>
-        <TitleBox>
-          <TitleText>Selecione a quantidade desejada</TitleText>
-        </TitleBox>
+    <div className={style.BoxPopupAdd}>
+      <div className={style.BoxContainer}>
+        <div className={style.TitleBox}>
+          <p className={style.TitleText}>Selecione a quantidade desejada</p>
+        </div>
 
-        <SelectQtd onChange={changeSelectedValue}>
+        <select className={style.SelectQtd} onChange={changeSelectedValue}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -35,8 +28,8 @@ const Popup = (props) => {
           <option value="8">8</option>
           <option value="9">9</option>
           <option value="10">10</option>
-        </SelectQtd>
-        <ButtonP
+        </select>
+        <p className={style.ButtonP}
           onClick={() => {
             props.setTrigger();
             addCart({ ...props.product, quantity: parseInt(selectedValue) });
@@ -44,9 +37,9 @@ const Popup = (props) => {
           }}
         >
           ADICIONAR AO CARRINHO
-        </ButtonP>
-      </BoxContainer>
-    </BoxPopupAdd>
+        </p>
+      </div>
+    </div>
   ) : (
     ""
   );

@@ -9,21 +9,9 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Header,
-  TitleHeader,
-  TextTitle,
-  MainCard,
-  MainCardContent,
-  ImagesFood,
-  CardPrice,
-  ButtonAdd,
-  ButtonRemove,
-  BoxCard,
-  TextP,
-} from "./styled";
 import { getDetailRestaurant } from "../../requests/user";
 import Popup from "./Popup";
+import style from '../../styles/components/RestaurantCard.module.css';
 
 const useStyles = makeStyles({
   root: {
@@ -61,11 +49,11 @@ export default function RestaurantCard() {
   };
 
   return (
-    <BoxCard>
+    <div className={style.BoxCard}>
       <img src={back} onClick={goBack} />
-      <Header>
-        <TitleHeader>Restaurantes</TitleHeader>
-      </Header>
+      <div className={style.Header}>
+        <p className={style.TitleHeader}>Restaurantes</p>
+      </div>
       <Card>
         <CardMedia
           style={{ borderRadius: "10px 10px 0 0" }}
@@ -74,10 +62,10 @@ export default function RestaurantCard() {
           title="foto capa restaurante"
         />
         <CardContent>
-          <TextTitle gutterBottom variant="h5" component="h2">
+          <div className={style.TextTitle} gutterBottom variant="h5" component="h2">
             {" "}
             {restaurant.name}{" "}
-          </TextTitle>
+          </div>
           <Typography variant="body2" color="textSecondary" component="p">
             {" "}
             {restaurant.category}{" "}
@@ -93,20 +81,20 @@ export default function RestaurantCard() {
           </Typography>
         </CardContent>
 
-        <TextP>Principais</TextP>
+        <p className={style.TextP}>Principais</p>
 
         {/* RENDERIZANDO PRODUTOS */}
         {restaurant.products &&
           restaurant.products.map((pdt) => {
             return (
-              <MainCard>
-                <ImagesFood src={pdt.photoUrl} />
+              <div className={style.MainCard}>
+                <img className={style.ImagesFood} src={pdt.photoUrl} />
 
-                <MainCardContent>
-                  <TextTitle gutterBottom variant="h5" component="h2">
+                <div className={style.MainCardContent}>
+                  <div className={style.TextTitle} gutterBottom variant="h5" component="h2">
                     {" "}
                     {pdt.name}{" "}
-                  </TextTitle>
+                  </div>
                   <Typography
                     variant="body2"
                     color="textSecondary"
@@ -116,20 +104,20 @@ export default function RestaurantCard() {
                     {pdt.description}{" "}
                   </Typography>
 
-                  <CardPrice>
+                  <div className={style.CardPrice}>
                     <p>R$ {pdt.price.toFixed(2)}</p>
                     <CardActions>
-                      <ButtonAdd
+                      <button className={style.ButtonAdd}
                         onClick={() => {
                           clickAddPdt(pdt);
                         }}
                       >
                         adicionar
-                      </ButtonAdd>
+                      </button>
                     </CardActions>
-                  </CardPrice>
-                </MainCardContent>
-              </MainCard>
+                  </div>
+                </div>
+              </div>
             );
           })}
       </Card>
@@ -140,6 +128,6 @@ export default function RestaurantCard() {
         product={{ ...selectedProduct, shipping: restaurant.shipping }}
         restaurant={restaurant}
       />
-    </BoxCard>
+    </div>
   );
 }
