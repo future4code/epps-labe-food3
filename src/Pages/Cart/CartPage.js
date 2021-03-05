@@ -24,7 +24,7 @@ import Footer from "../../components/Footer/Footer";
 import FoodCard from "../../components/FoodCard/FoodCard";
 import { useHistory } from "react-router-dom";
 
-export const CartPage = () => {
+const CartPage = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalShipping, setTotalShipping] = useState(0);
   const { products, setProducts } = useCartCtx();
@@ -99,3 +99,5 @@ export const CartPage = () => {
     </CartContainer>
   );
 };
+
+export default CartPage;

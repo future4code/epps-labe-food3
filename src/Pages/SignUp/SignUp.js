@@ -8,9 +8,8 @@ import SignUpForm from "./SignUpForm";
 
 const SignUp = () => {
 
-
   return (
-    <div className="main">
+    <div>
       <SignUpForm/>
     </div>
 

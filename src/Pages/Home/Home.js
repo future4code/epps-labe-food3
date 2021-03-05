@@ -1,26 +1,13 @@
 import React, { useEffect } from "react";
 import { useRestaurants } from "../../Contexts/RestaurantsCtx";
-import axios from "axios";
-import {
-  DivContent,
-  Header,
-  Title,
-  InputContainer,
-  FilterContainer,
-  FilterKey,
-  RestaurantContainer,
-  Filtro,
-  TextCopy,
-  popUp
-} from "./HomeStyle";
 import TextField from "@material-ui/core/TextField";
 import RestaurantCardHome from "../../components/RestaurantCardHome/RestaurantCardHome";
 import Footer from "../../components/Footer/Footer";
-import style from './Style.css';
-import back from '../../Assets/back.png';
-import clock from '../../Assets/clock.png';
+import back from "../../Assets/back.png";
+import clock from "../../Assets/clock.png";
 import { useHistory } from "react-router-dom";
 import { getRestaurants } from "../../requests/user";
+import styles from "../../styles/components/Home.module.css";
 
 export default function Home() {
   const { restaurants, setRestaurants } = useRestaurants();
@@ -29,52 +16,51 @@ export default function Home() {
   useEffect(() => {
     getRestaurants(setRestaurants);
   }, []);
-  
-  const goBack = () =>{
-    history.goBack()
-}
+
+  const goBack = () => {
+    history.goBack();
+  };
 
   return (
-    <DivContent>
-          <img src={back} onClick={goBack}/>
-      <Header>
-        <Title>FutureEats</Title>
-      </Header>
-      
+    <div className={styles.DivContent}>
+      <img src={back} onClick={goBack} />
+      <div className={styles.Header}>
+        <p className={styles.Title}>FutureEats</p>
+      </div>
+
       <div>
-        <InputContainer>
+        <div className={styles.InputContainer}>
           <TextField
             variant="outlined"
             placeholder="Restaurante"
-            className="senha"
+            className={styles.senha}
             fullWidth
           />
-        </InputContainer>
-        
+        </div>
+
         {/* filtro das tags do tipo de comida */}
-        <Filtro>
-          <TextCopy>Burguer</TextCopy>
-          <TextCopy>Asiática</TextCopy>
-          <TextCopy>Massas</TextCopy>
-          <TextCopy>Saudáveis</TextCopy>
-        </Filtro>
-        
-        <FilterContainer>
-          <FilterKey></FilterKey>
-        </FilterContainer>
-        
+        <div className={styles.Filtro}>
+          <span class={styles.TextCopy}>Burguer</span>
+          <span class={styles.TextCopy}>Asiática</span>
+          <span class={styles.TextCopy}>Massas</span>
+          <span class={styles.TextCopy}>Saudáveis</span>
+        </div>
+
+        <div className={styles.FilterContainer}>
+          <p className={styles.FilterKey}></p>
+        </div>
+
         {/* janela apos o pedido ser feito */}
         {/* pode comentar essa janela ate estar funcional*/}
 
-        {/* <div className="popUp">
-          <img src={clock} className="clock"/>
-          <p className="Pedido-em-andamento">Pedido em andamento</p>
-          <p className="Bullguer-Vila-Madale">Bullguer Vila Madalena</p>
-          <p className="Bullguer-Vila-Madale">Subtotal R$67,00</p>
+        {/* <div className={styles.popUp}>
+          <img src={clock} className={styles.clock}/>
+          <p className={styles.PedidoContainer}>Pedido em andamento</p>
+          <p className={styles.BurguerBox}>Bullguer Vila Madalena</p>
+          <p className={styles.BurguerBox}>Subtotal R$67,00</p>
         </div> */}
 
-
-        <RestaurantContainer>
+        <div className={styles.RestaurantContainer}>
           {restaurants &&
             restaurants.map((rest) => {
               return (
@@ -88,10 +74,9 @@ export default function Home() {
                 />
               );
             })}
-            
-        </RestaurantContainer>
+        </div>
       </div>
       <Footer />
-    </DivContent>
+    </div>
   );
 }

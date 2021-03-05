@@ -1,16 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
-
 * {
     margin: 0px;
     padding: 0px;
 }
 
-body{
-    color: black;
-    font-family: 'Roboto', sans-serif;
-}
 
-.main{
+.Main{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,24 +13,23 @@ body{
 }
 
 button {
-  width: 360px;
-  height: 42px;
-  margin: 8px 0 0;
-  padding: 0 16px;
-  background: var(--mainColor);
-  border: none;
-  margin: auto;
-}
-
-.Input_nolocus {
-  width: 360px;
-  height: 72px;
-  margin: 5px 0 0;
-  padding: 0 16px 8px;
-  /* background-color: red; */
-}
-
-.Text {
+    width: 360px;
+    height: 42px;
+    margin: 8px 0 0;
+    padding: 0 16px;
+    background: var(--mainColor);
+    border: none;
+    margin: auto;
+  }
+  
+  .Input_nolocus {
+    width: 360px;
+    height: 72px;
+    margin: 5px 0 0;
+    padding: 0 16px 8px;
+  }
+  
+  .Text {
     width: 296px;
     height: 18px;
     font-family: Roboto;
@@ -49,13 +42,13 @@ button {
     text-align: center;
     color: #000000;
   }
-  
+/*   
   .Input_nolocus {
     width: 360px;
     height: 72px;
     margin: 58px 0 0;
     padding: 0 16px 8px;
-  }
+  } */
   
   .Label-Copy {
     width: 78px;
@@ -98,5 +91,3 @@ button {
     background-position-x: 400%; */
     margin-left: 80vw;
   }
-
-

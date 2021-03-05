@@ -3,6 +3,7 @@ import TextFieldStyled from "@material-ui/core/TextField";
 import useForm from "../../../Hooks/useForm";
 import back from '../../../Assets/back.png';
 import { useHistory } from "react-router-dom";
+import styles from '../../../styles/components/Profile.module.css';
 
 const EditAddres = () =>{
     const history = useHistory();
@@ -19,16 +20,18 @@ const EditAddres = () =>{
     }
 
     return(
-    <>
-        <img src={back} onClick={goBack}/>
-        <h1 className="title">Endereço</h1>
+    <div className={styles.MainDiv}>
+        <img src={back} onClick={goBack} className={styles.back}/>
+        
+        <h1 className={styles.title}>Endereço</h1>
+        
         <TextFieldStyled onSubmit={handleSubmission}
             value={form.street}
             name="street"
             onChange={onChange}
             label="Logadouro"
             variant="outlined"
-            className="Input_locus"
+            className={styles.Input_locus}
             required
         />
         <TextFieldStyled
@@ -37,7 +40,7 @@ const EditAddres = () =>{
             onChange={onChange}
             label="Número"
             variant="outlined"
-            className="Input_locus"
+            className={styles.Input_locus}
             pattern="[.\s\w]{2,}"
             required
         />
@@ -48,7 +51,7 @@ const EditAddres = () =>{
             onChange={onChange}
             label="Complemento"
             variant="outlined"
-            className="Input_locus "
+            className={styles.Input_locus}
             required
         />
         
@@ -58,7 +61,7 @@ const EditAddres = () =>{
             onChange={onChange}
             label="Bairro"
             variant="outlined"
-            className="Input_locus"
+            className={styles.Input_locus}
             required
         />
         <TextFieldStyled
@@ -67,7 +70,7 @@ const EditAddres = () =>{
             onChange={onChange}
             label="Cidade"
             variant="outlined"
-            className="Input_locus"
+            className={styles.Input_locus}
             required
         />
         <TextFieldStyled
@@ -76,13 +79,13 @@ const EditAddres = () =>{
             onChange={onChange}
             label="Estado"
             variant="outlined"
-            className="Input_locus"
+            className={styles.Input_locus}
             required
         />
        
         
-        <button className="Rectangle">Salvar</button>
-    </>    
+        <button className={styles.ButtonDesign}>Salvar</button>
+    </div>    
     )
 }
 

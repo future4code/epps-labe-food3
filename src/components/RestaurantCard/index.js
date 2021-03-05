@@ -2,27 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import back from "../../Assets/back.png";
+import styles from "../../styles/components/Home.module.css";
+import Typography from "@material-ui/core/Typography";
 
 //DESIGN
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Header,
-  TitleHeader,
-  TextTitle,
-  MainCard,
-  MainCardContent,
-  ImagesFood,
-  CardPrice,
-  ButtonAdd,
-  ButtonRemove,
-  BoxCard,
-  TextP,
-} from "./styled";
 import { getDetailRestaurant } from "../../requests/user";
 import Popup from "./Popup";
 
@@ -63,11 +51,12 @@ export default function RestaurantCard() {
   };
 
   return (
-    <BoxCard>
+    <div className={styles.BoxCard}>
       <img src={back} onClick={goBack} />
-      <Header>
-        <TitleHeader>Restaurantes</TitleHeader>
-      </Header>
+      <div className={styles.Header}>
+        <p className={styles.TitleHeader}>Restaurantes</p>
+      </div>
+      
       <Card>
         <CardMedia
           style={{ borderRadius: "10px 10px 0 0" }}
@@ -75,11 +64,11 @@ export default function RestaurantCard() {
           className={classes.media}
           title="foto capa restaurante"
         />
-        <CardContent>
-          <TextTitle gutterBottom variant="h5" component="h2">
+        <div className={styles.CardContent}>
+          <Typography gutterBottom variant="h5" component="h2">
             {" "}
             {restaurant.name}{" "}
-          </TextTitle>
+          </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {" "}
             {restaurant.category}{" "}
@@ -93,22 +82,22 @@ export default function RestaurantCard() {
             {" "}
             {restaurant.address}{" "}
           </Typography>
-        </CardContent>
+        </div>
 
-        <TextP>Principais</TextP>
+        <p className={styles.TextP}>Principais</p>
 
         {/* RENDERIZANDO PRODUTOS */}
         {restaurant.products &&
           restaurant.products.map((pdt) => {
             return (
-              <MainCard>
-                <ImagesFood src={pdt.photoUrl} />
+              <div className={styles.MainCard}>
+                <img src={pdt.photoUrl} className={styles.ImagesFood}/>
 
-                <MainCardContent>
-                  <TextTitle gutterBottom variant="h5" component="h2">
+                <div className={styles.MainCardContent}>
+                  <Typography gutterBottom variant="h5" component="h2">
                     {" "}
                     {pdt.name}{" "}
-                  </TextTitle>
+                  </Typography>
                   <Typography
                     variant="body2"
                     color="textSecondary"
@@ -118,16 +107,16 @@ export default function RestaurantCard() {
                     {pdt.description}{" "}
                   </Typography>
 
-                  <CardPrice>
+                  <div className={styles.CardPrice}>
                     <p>R$ {pdt.price.toFixed(2)}</p>
                     <CardActions>
-                      <ButtonAdd onClick={() => clickAddPdt(pdt)}>
+                      <button className={styles.ButtonAdd} onClick={() => clickAddPdt(pdt)}>
                         adicionar
-                      </ButtonAdd>
+                      </button>
                     </CardActions>
-                  </CardPrice>
-                </MainCardContent>
-              </MainCard>
+                  </div>
+                </div>
+              </div>
             );
           })}
       </Card>
@@ -137,6 +126,6 @@ export default function RestaurantCard() {
         setTrigger={() => setshowPopup(false)}
         product={selectedProduct}
       />
-    </BoxCard>
+    </div>
   );
 }

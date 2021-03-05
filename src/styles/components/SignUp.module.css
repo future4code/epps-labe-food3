@@ -1,8 +1,10 @@
-* {
-    margin: 0px;
-    padding: 0px;
+.Main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
-
 
 button {
     width: 360px;
@@ -29,6 +31,27 @@ button {
     color: var(--greyish);
   }
   
+  .Text {
+    width: 296px;
+    height: 18px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    text-align: center;
+    color: #000000;
+  }
+  
+  .Logo_FutureEats_invert {
+    width: 104px;
+    height: 58px;
+    margin: 24px 128px 16px;
+    object-fit: contain;
+  }
+  
   
   #Rectangle {
     width: 328px;
@@ -44,7 +67,6 @@ button {
     height: 72px;
     margin: 5px 0 0;
     padding: 0 16px 8px;
-    /* background-color: red; */
   }
   
   .buttonDesign {
@@ -77,6 +99,3 @@ button {
     margin: 58px 0 0;
     padding: 0 16px 8px;
   }
-
-  
- 

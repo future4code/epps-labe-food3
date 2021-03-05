@@ -3,6 +3,7 @@ import TextFieldStyled from "@material-ui/core/TextField";
 import useForm from "../../../Hooks/useForm";
 import back from "../../../Assets/back.png";
 import { useHistory } from "react-router-dom";
+import styles from '../../../styles/components/Profile.module.css';
 
 const EditProfile = () => {
   const history = useHistory();
@@ -19,10 +20,10 @@ const EditProfile = () => {
   };
 
   return (
-    <>
-      <img src={back} onClick={goBack} />
+    <div className={styles.MainDiv}>
+      <img src={back} onClick={goBack} className={styles.back}/>
 
-      <h1 className="title">Editar</h1>
+      <h1 className={styles.title}>Editar</h1>
 
       <TextFieldStyled
         onSubmit={handleSubmission}
@@ -31,7 +32,7 @@ const EditProfile = () => {
         onChange={onChange}
         variant="outlined"
         label="Nome"
-        className="Input_locus"
+        className={styles.Input_locus}
         required
       />
       <TextFieldStyled
@@ -40,7 +41,7 @@ const EditProfile = () => {
         onChange={onChange}
         variant="outlined"
         label="E-mail"
-        className="Input_locus"
+        className={styles.Input_locus}
         required
       />
       <TextFieldStyled
@@ -50,12 +51,12 @@ const EditProfile = () => {
         variant="outlined"
         label="CPF"
         placeholder="Somente números"
-        className="Input_locus"
+        className={styles.Input_locus}
         pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
         required
       />
-      <button className="Rectangle">SALVAR</button>
-    </>
+      <button className={styles.ButtonDesign}>SALVAR</button>
+    </div>
   );
 };
 

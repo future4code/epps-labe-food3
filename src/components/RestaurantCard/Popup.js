@@ -8,6 +8,8 @@ import {
   TitleText,
   ButtonP,
 } from "./styled";
+import styles from "../../styles/components/Home.module.css";
+
 
 const Popup = (props) => {
   const { addCart } = useCartCtx();
@@ -18,13 +20,13 @@ const Popup = (props) => {
   };
 
   return props.trigger ? (
-    <BoxPopupAdd>
-      <BoxContainer>
+    <div className={styles.BoxPopupAdd}>
+      <div className={styles.BoxContainer}>
         <TitleBox>
-          <TitleText>Selecione a quantidade desejada</TitleText>
+          <p className={styles.TitleText}>Selecione a quantidade desejada</p>
         </TitleBox>
 
-        <SelectQtd onChange={changeSelectedValue}>
+        <select className={styles.SelectQtd} onChange={changeSelectedValue}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -35,17 +37,17 @@ const Popup = (props) => {
           <option value="8">8</option>
           <option value="9">9</option>
           <option value="10">10</option>
-        </SelectQtd>
-        <ButtonP
+        </select>
+        <p className={styles.ButtonP}
           onClick={() => {
             props.setTrigger();
             addCart({ ...props.product, quantity: parseInt(selectedValue) });
           }}
         >
           ADICIONAR AO CARRINHO
-        </ButtonP>
-      </BoxContainer>
-    </BoxPopupAdd>
+        </p>
+      </div>
+    </div>
   ) : (
     ""
   );

@@ -6,7 +6,7 @@ import Address from "../Pages/Profile/Address/Address";
 import Home from "../Pages/Home/Home";
 import RestaurantPage from "../Pages/Restaurant";
 import Profile from "../Pages/Profile/MyProfile/MyProfile";
-import { CartPage } from "../Pages/Cart";
+import CartPage from "../Pages/Cart/CartPage";
 import EditProfile from "../Pages/Profile/MyProfile/EditProfile";
 import EditAddres from "../Pages/Profile/MyProfile/EditAddres";
 import Loading from '../Pages/Loading/Loading'
