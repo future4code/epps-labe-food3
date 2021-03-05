@@ -112,3 +112,48 @@ export const getDetailRestaurant = (id, setRestaurant) => {
     })
 }
 
+// *************** axios de editar profile ***************** //
+
+
+export const updateProfile = (body, clear, history) => {
+  const headers = {
+    headers: {
+      Auth: localStorage.getItem("token")
+    }
+  }
+  axios
+    .get(`${BASE_URL}/profile`, headers)
+    .then((res) => {
+      alert("atualizado com sucesso");
+      console.log(res.data);
+      clear();
+      getProfile()
+    })
+    .catch((error) => {
+      alert("deu erro pra atualizar");
+      console.log(error.response);
+    })
+}
+
+// *************** axios de editar endereco ***************** //
+
+export const updateAdress = (body, clear, history) => {
+  const headers = {
+    headers: {
+      Auth: localStorage.getItem("token")
+    }
+  }
+  axios
+    .get(`${BASE_URL}/profile`, headers)
+    .then((res) => {
+      alert("end atualizado");
+      console.log(res.data);
+      clear();
+      getProfile()
+    })
+    .catch((error) => {
+      alert("deu erro pra atualizar o endereco");
+      console.log(error.response);
+    })
+}
+
