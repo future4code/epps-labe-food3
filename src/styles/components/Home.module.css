@@ -1,0 +1,172 @@
+
+.DivContent{
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  align-items: center;
+  width: 100vw;
+}
+
+
+.Header{
+  width: 360px;
+  height: 64px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Title{
+  width: 74px;
+  height: 19px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  text-align: center;
+  color: #000000;
+  display: flex;
+  align-content: center;
+} 
+
+.InputContainer {
+  width: 328px;
+  height: 56px;
+  margin-top: 8px;
+  display: flex;
+  margin-left: 16px;
+
+}
+
+.Input {
+  width: 328px;
+  height: 56px;
+  border-radius: 2px;
+  border: solid 1px #b8b8b8;
+  font-family: Roboto;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.FilterContainer {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  width: 360px;
+  height: 42px;
+  display: flex;
+  overflow: auto;
+  white-space: nowrap;
+  display: flex;
+}
+
+.FilterKey{
+  margin-left: 24px;
+  /* :active {
+    color: #e86e5a;
+}
+  diplay: flex; */
+}
+
+.RestaurantContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Filtro{
+  width: 360px;
+  height: 42px;
+  margin: 8px 0 0;
+  padding: 12px 0 12px 16px;
+}
+
+.TextCopy {
+  width: 87px;
+  height: 18px;
+  margin: 0 8px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  text-align: center;
+  color: #000000;
+}
+
+.popUp {
+  width: 360px;
+  height: 118px;
+  margin: 99px 0 49px;
+  padding: 24px;
+  background-color: #5cb646;
+}
+
+.senha {
+    width: 24px;
+    height: 24px;
+    margin: 0 0 0 8px;
+    object-fit: contain;
+    background-image: url(../../Assets/search.png);
+    background-repeat: no-repeat;
+    margin-left: 80vw;
+  }
+  
+  .popUp {
+    width: 100%;
+    height: 118px;
+    margin: 99px 0 49px;
+    padding: 24px;
+    background-color: #5cb646;
+  }
+  
+  .popUp p:first-child{
+    color: white;
+  }
+  
+  .BurguerBox {
+    width: 256px;
+    height: 18px;
+    margin: 8px 0 8px 24px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    color: #000000;
+  }
+  
+  .PedidoContainer {
+    width: 256px;
+    height: 18px;
+    margin: 0 0 2px 24px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    color: #ffffff;
+  }
+  
+  .clock {
+    width: 32px;
+    height: 32px;
+    margin: 2px 24px 0 0;
+    object-fit: contain;
+  }
+
+
+
+
+

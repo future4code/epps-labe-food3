@@ -1,0 +1,31 @@
+/* body{
+    background-color: white;
+} */
+
+.Main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: black;
+}
+
+.ImageContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center
+   
+}
+
+.ImageDesign{
+    width: 126px;
+    height: 65px;
+}
+
+.ProgressDesign{
+    width: 10vw;
+}
+
