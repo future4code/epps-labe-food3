@@ -1,22 +1,8 @@
 import React, { useEffect } from "react";
 import { useRestaurants } from "../../Contexts/RestaurantsCtx";
-import axios from "axios";
-import {
-  DivContent,
-  Header,
-  Title,
-  InputContainer,
-  FilterContainer,
-  FilterKey,
-  RestaurantContainer,
-  Filtro,
-  TextCopy,
-  popUp
-} from "./HomeStyle";
 import TextField from "@material-ui/core/TextField";
 import RestaurantCardHome from "../../components/RestaurantCardHome/RestaurantCardHome";
 import Footer from "../../components/Footer/Footer";
-import style from './Style.css';
 import back from '../../Assets/back.png';
 import clock from '../../Assets/clock.png';
 import { useHistory } from "react-router-dom";
@@ -67,11 +53,11 @@ export default function Home() {
         {/* janela apos o pedido ser feito */}
         {/* pode comentar essa janela ate estar funcional*/}
 
-        {/* <div className="popUp">
-          <img src={clock} className="clock"/>
-          <p className="Pedido-em-andamento">Pedido em andamento</p>
-          <p className="Bullguer-Vila-Madale">Bullguer Vila Madalena</p>
-          <p className="Bullguer-Vila-Madale">Subtotal R$67,00</p>
+        {/* <div className={styles.popUp}>
+          <img src={clock} className={styles.clock}/>
+          <p className={styles.PedidoContainer}>Pedido em andamento</p>
+          <p className={styles.BurguerBox}>Bullguer Vila Madalena</p>
+          <p className={styles.BurguerBox}>Subtotal R$67,00</p>
         </div> */}
 
 
