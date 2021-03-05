@@ -27,6 +27,7 @@ import { useHistory } from "react-router-dom";
 export const CartPage = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const { products, setProducts, shipping } = useCartCtx();
+  const [payment, setPayment] = useState("");
   const history = useHistory();
 
   const removeItem = (item) => {
@@ -43,6 +44,10 @@ export const CartPage = () => {
   useEffect(() => {
     setTotalPrice(price);
   }, products);
+
+  const onChangePayment = (event) => {
+    setPayment(event.target.value);
+  };
 
   return (
     <CartContainer>
@@ -85,7 +90,7 @@ export const CartPage = () => {
       <PaymentMethodText>Forma de pagamento</PaymentMethodText>
       <CheckBox>
         <FormControl component="fieldset" required={true}>
-          <RadioGroup name="metodoDePag" value="">
+          <RadioGroup name="payment" value={payment} onChange={onChangePayment}>
             <FormControlLabel
               value="dinheiro"
               control={<Radio color="black" />}
