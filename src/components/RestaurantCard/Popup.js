@@ -14,7 +14,7 @@ const Popup = (props) => {
   const [selectedValue, setSelectedValue] = useState(1);
 
   const changeSelectedValue = (e) => {
-    setSelectedValue(e.target.value);
+    setSelectedValue(parseInt(e.target.value));
   };
 
   return props.trigger ? (

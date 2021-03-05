@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useCartCtx } from "../../Contexts/CartCtx";
 
 /* DESIGN */
@@ -25,8 +25,25 @@ import FoodCard from "../../components/FoodCard/FoodCard";
 import { useHistory } from "react-router-dom";
 
 export const CartPage = () => {
-  const { products, setProdutcts, payment, setPayment, addCart } = useCartCtx();
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalShipping, setTotalShipping] = useState(0);
+  const { products, setProducts } = useCartCtx();
   const history = useHistory();
+
+  const removeItem = (item) => {
+    const newArray = products.filter((pdt) => {
+      return pdt.id !== item.id;
+    });
+    setProducts(newArray);
+  };
+
+  const price = products.reduce(function (prev, pdt) {
+    return pdt.price * pdt.quantity + prev;
+  }, 0);
+
+  useEffect(() => {
+    setTotalPrice(price);
+  }, products);
 
   return (
     <CartContainer>
@@ -47,15 +64,17 @@ export const CartPage = () => {
               name={pdt.name}
               description={pdt.description}
               price={pdt.price}
+              quantity={pdt.quantity}
               nameButton="rem"
+              onClickButtonRemove={() => removeItem(pdt)}
             />
           );
         })}
 
-      <ShippingText>Frete R$</ShippingText>
+      <ShippingText>Frete R$ {totalShipping.toFixed(2)}</ShippingText>
       <SubtotalPrice>
         <p>SUBTOTAL</p>
-        <TotalPrice>R$ 0.00</TotalPrice>
+        <TotalPrice>R$ {totalPrice.toFixed(2)}</TotalPrice>
       </SubtotalPrice>
 
       <PaymentMethodText>Forma de pagamento</PaymentMethodText>
