@@ -3,7 +3,7 @@ import { useCartCtx } from "../../Contexts/CartCtx";
 import style from '../../styles/components/RestaurantCard.module.css';
 
 const Popup = (props) => {
-  const { addCart, addShipping } = useCartCtx();
+  const { addCart, setShipping } = useCartCtx();
   const [selectedValue, setSelectedValue] = useState(1);
 
   const changeSelectedValue = (e) => {
@@ -33,7 +33,7 @@ const Popup = (props) => {
           onClick={() => {
             props.setTrigger();
             addCart({ ...props.product, quantity: parseInt(selectedValue) });
-            addShipping(props.restaurant);
+            setShipping(props.restaurant.shipping);
           }}
         >
           ADICIONAR AO CARRINHO
