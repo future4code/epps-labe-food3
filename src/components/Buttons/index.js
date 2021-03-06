@@ -4,7 +4,7 @@ import { Button, ContainerButton } from "./styled";
 const Buttons = (props) => {
   return (
     <ContainerButton>
-      <Button>
+      <Button onClick={props.onClick}>
         <p>{props.text}</p>
       </Button>
     </ContainerButton>

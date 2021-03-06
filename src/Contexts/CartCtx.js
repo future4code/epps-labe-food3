@@ -5,7 +5,8 @@ const CartCtx = createContext();
 export default function CartProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [payment, setPayment] = useState("");
-  const [shipping, setShipping] = useState([]);
+  const [shipping, setShipping] = useState(0);
+  const [restaurantId, setRestaurantId] = useState("");
   return (
     <CartCtx.Provider
       value={{
@@ -15,6 +16,8 @@ export default function CartProvider({ children }) {
         setPayment,
         shipping,
         setShipping,
+        restaurantId,
+        setRestaurantId,
       }}
     >
       {children}
@@ -31,6 +34,8 @@ export const useCartCtx = () => {
     setPayment,
     shipping,
     setShipping,
+    restaurantId,
+    setRestaurantId,
   } = context;
 
   const addCart = (newPdt) => {
@@ -63,27 +68,7 @@ export const useCartCtx = () => {
     }
   };
 
-  const addShipping = (restaurant) => {
-    const exists = () => {
-      let res = false;
-      for (const item of shipping) {
-        if (item.id === restaurant.id) {
-          res = true;
-          break;
-        }
-      }
-      return res;
-    };
 
-    if (!exists()) {
-      setShipping([
-        ...shipping,
-        { id: restaurant.id, shipping: restaurant.shipping },
-      ]);
-    }
-
-    console.log(shipping);
-  };
 
   return {
     products,
@@ -93,6 +78,7 @@ export const useCartCtx = () => {
     shipping,
     setShipping,
     addCart,
-    addShipping
+    restaurantId,
+    setRestaurantId,
   };
 };

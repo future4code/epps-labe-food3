@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { placeOrder } from "../../requests/user";
 import { useCartCtx } from "../../Contexts/CartCtx";
 
 /* DESIGN */
@@ -12,11 +13,11 @@ import Buttons from "../../components/Buttons";
 import Footer from "../../components/Footer/Footer";
 import FoodCard from "../../components/FoodCard/FoodCard";
 import { useHistory } from "react-router-dom";
-import style from '../../styles/components/CardPage.module.css';
+import style from "../../styles/components/CardPage.module.css";
 
 const CartPage = () => {
   const [totalPrice, setTotalPrice] = useState(0);
-  const { products, setProducts, shipping } = useCartCtx();
+  const { products, setProducts, shipping, restaurantId } = useCartCtx();
   const [payment, setPayment] = useState("");
   const history = useHistory();
 
@@ -30,6 +31,21 @@ const CartPage = () => {
   const price = products.reduce(function (prev, pdt) {
     return pdt.price * pdt.quantity + prev;
   }, 0);
+
+  const confirmBuy = () => {
+    const body = {
+      products: products.map((pdt) => {
+        return {
+          id: pdt.id,
+          quantity: pdt.quantity,
+        };
+      }),
+
+      paymentMethod: payment,
+    };
+    console.log(body);
+    placeOrder(restaurantId, body);
+  };
 
   useEffect(() => {
     setTotalPrice(price);
@@ -65,16 +81,12 @@ const CartPage = () => {
           );
         })}
 
-      <p className={style.ShippingText}>
-        Frete R${" "}
-        {shipping &&
-          shipping.reduce(function (a, b) {
-            return a + b.shipping;
-          },0).toFixed(2)}
-      </p>
+      <p className={style.ShippingText}>Frete R$ {shipping.toFixed(2)}</p>
       <div className={style.SubtotalPrice}>
         <p>SUBTOTAL</p>
-        <div className={style.TotalPrice}>R$ {totalPrice.toFixed(2)}</div>
+        <div className={style.TotalPrice}>
+          R$ {(price + shipping).toFixed(2)}
+        </div>
       </div>
 
       <p className={style.PaymentMethodText}>Forma de pagamento</p>
@@ -82,22 +94,22 @@ const CartPage = () => {
         <FormControl component="fieldset" required={true}>
           <RadioGroup name="payment" value={payment} onChange={onChangePayment}>
             <FormControlLabel
-              value="dinheiro"
+              value="money"
               control={<Radio color="black" />}
               label="Dinheiro"
             />
             <FormControlLabel
-              value="credito"
+              value="creditcard"
               control={<Radio color="black" />}
               label="Cartão de crédito"
             />
           </RadioGroup>
         </FormControl>
       </div>
-      <Buttons text="CONFIRMAR" onClick={""}></Buttons>
+      <Buttons text="CONFIRMAR" onClick={confirmBuy} />
       <Footer />
     </div>
   );
-}
+};
 
 export default CartPage;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import back from "../../Assets/back.png";
+import { useCartCtx } from "../../Contexts/CartCtx";
 
 //DESIGN
 import Card from "@material-ui/core/Card";
@@ -11,7 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { getDetailRestaurant } from "../../requests/user";
 import Popup from "./Popup";
-import style from '../../styles/components/RestaurantCard.module.css';
+import style from "../../styles/components/RestaurantCard.module.css";
 
 const useStyles = makeStyles({
   root: {
@@ -34,14 +35,23 @@ export default function RestaurantCard() {
   const [restaurant, setRestaurant] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState({});
   const [showPopup, setshowPopup] = useState(false);
+  const { restaurantId, setRestaurantId, setProducts } = useCartCtx();
 
   useEffect(() => {
     getDetailRestaurant(id, setRestaurant);
   }, []);
 
   const clickAddPdt = (pdt) => {
+    if (restaurantId !== "" && restaurantId !== restaurant.id) {
+      if(window.confirm(
+        "Este produto é de outro restaurante, deseja criar um novo carrinho?"
+      )){
+        setProducts([])
+      }
+    }
     setshowPopup(true);
     setSelectedProduct(pdt);
+    setRestaurantId(restaurant.id);
   };
 
   const goBack = () => {
@@ -62,7 +72,12 @@ export default function RestaurantCard() {
           title="foto capa restaurante"
         />
         <CardContent>
-          <div className={style.TextTitle} gutterBottom variant="h5" component="h2">
+          <div
+            className={style.TextTitle}
+            gutterBottom
+            variant="h5"
+            component="h2"
+          >
             {" "}
             {restaurant.name}{" "}
           </div>
@@ -91,7 +106,12 @@ export default function RestaurantCard() {
                 <img className={style.ImagesFood} src={pdt.photoUrl} />
 
                 <div className={style.MainCardContent}>
-                  <div className={style.TextTitle} gutterBottom variant="h5" component="h2">
+                  <div
+                    className={style.TextTitle}
+                    gutterBottom
+                    variant="h5"
+                    component="h2"
+                  >
                     {" "}
                     {pdt.name}{" "}
                   </div>
@@ -107,7 +127,8 @@ export default function RestaurantCard() {
                   <div className={style.CardPrice}>
                     <p>R$ {pdt.price.toFixed(2)}</p>
                     <CardActions>
-                      <button className={style.ButtonAdd}
+                      <button
+                        className={style.ButtonAdd}
                         onClick={() => {
                           clickAddPdt(pdt);
                         }}
