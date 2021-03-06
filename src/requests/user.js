@@ -1,6 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "../Constants/BASE_URL/BASE_URL";
 import { goToAdress, goToFeed } from "../Routes/Coordinator";
+import { setOrder } from "../Contexts/CartCtx";
 
 // *************** axios do login ***************** //
 
@@ -152,16 +153,37 @@ export const updateAdress = (body, clear, history) => {
     });
 };
 
-export const placeOrder = (idRestaurant,body) => {
+/******************* axios de nova compra *******************/
+export const placeOrder = (idRestaurant, body) => {
   const headers = {
     headers: {
       Auth: localStorage.getItem("token"),
     },
   };
   axios
-    .post(`${BASE_URL}/restaurants/${idRestaurant}/order`,body, headers)
+    .post(`${BASE_URL}/restaurants/${idRestaurant}/order`, body, headers)
     .then((res) => {
       console.log(res.response);
+    })
+    .catch((err) => {
+      console.log(err.response);
+    });
+};
+
+/******************* axios verifica pedidos pendentes *******************/
+
+export const getActiveOrder = (newOrder) => {
+  const headers = {
+    headers: {
+      Auth: localStorage.getItem("token"),
+    },
+  };
+
+  axios
+    .get(`${BASE_URL}/active-order`, headers)
+    .then((res) => {
+      console.log(res.data.order);
+      newOrder(res.data.order);
     })
     .catch((err) => {
       console.log(err.response);
