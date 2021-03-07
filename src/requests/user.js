@@ -100,10 +100,10 @@ export const getDetailRestaurant = (id, setRestaurant) => {
   axios
     .get(`${BASE_URL}/restaurants/${id}`, headers)
     .then((response) => setRestaurant(response.data.restaurant))
-    // .then((res) => {
-    //   console.log(res.data.restaurant);
-    //   setRestaurant(res.data.restaurant);
-    // })
+    .then((res) => {
+      // console.log(res.data.restaurant);
+      setRestaurant(res.data.restaurant);
+    })
     .catch((err) => {
       console.log(err.response);
     });

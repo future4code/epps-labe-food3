@@ -38,7 +38,7 @@ export default function RestaurantCard() {
   const { restaurantId, setRestaurantId, setProducts } = useCartCtx();
 
   useEffect(() => {
-    getDetailRestaurant(id);
+    getDetailRestaurant(id, setRestaurant);
   }, []);
 
   const clickAddPdt = (pdt) => {
