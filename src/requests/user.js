@@ -163,9 +163,11 @@ export const placeOrder = (idRestaurant, body) => {
   axios
     .post(`${BASE_URL}/restaurants/${idRestaurant}/order`, body, headers)
     .then((res) => {
+      alert('Pedido confirmado com sucesso!')
       console.log(res.response);
     })
     .catch((err) => {
+      alert(err.response.data.message)
       console.log(err.response);
     });
 };
