@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { placeOrder } from "../../requests/user";
 import { useCartCtx } from "../../Contexts/CartCtx";
+import { getFullAddress } from "../../requests/user";
 
 /* DESIGN */
 import {
@@ -17,6 +18,7 @@ import style from "../../styles/components/CardPage.module.css";
 
 const CartPage = () => {
   const [totalPrice, setTotalPrice] = useState(0);
+  const [address, setAddress] = useState([]);
   const { products, setProducts, shipping, restaurantId } = useCartCtx();
   const [payment, setPayment] = useState("");
   const history = useHistory();
@@ -50,6 +52,10 @@ const CartPage = () => {
   useEffect(() => {
     setTotalPrice(price);
   }, products);
+
+  useEffect(() => {
+    getFullAddress(setAddress);
+  }, []);
 
   const onChangePayment = (event) => {
     setPayment(event.target.value);
