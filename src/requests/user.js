@@ -163,11 +163,11 @@ export const placeOrder = (idRestaurant, body) => {
   axios
     .post(`${BASE_URL}/restaurants/${idRestaurant}/order`, body, headers)
     .then((res) => {
-      alert('Pedido confirmado com sucesso!')
+      alert("Pedido confirmado com sucesso!");
       console.log(res.response);
     })
     .catch((err) => {
-      alert(err.response.data.message)
+      alert(err.response.data.message);
       console.log(err.response);
     });
 };
@@ -189,5 +189,24 @@ export const getActiveOrder = (newOrder) => {
     })
     .catch((err) => {
       console.log(err.response);
+    });
+};
+
+/* axios pega endereço completo */
+export const getFullAddress = (setAddress) => {
+  const headers = {
+    headers: {
+      Auth: localStorage.getItem("token"),
+    },
+  };
+
+  axios
+    .get(`${BASE_URL}/profile/address`)
+    .then((res) => {
+      console.log(res.data);
+      setAddress(res.data)
+    })
+    .catch((res) => {
+      console.log(res.response);
     });
 };
