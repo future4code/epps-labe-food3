@@ -66,7 +66,10 @@ const CartPage = () => {
       <div className={style.AdressContainer}>
         <p className={style.AdressDelivery}>Endereço de entrega</p>
 
-        <p>Buscando endereço...</p>
+        <p>
+          {address && address.city}-{address.state}, {address.neighbourhood},
+          {address.street}, N°{address.number}, complemento {address.complement}
+        </p>
       </div>
 
       <p className={style.Title}>Carrinho vazio</p>
