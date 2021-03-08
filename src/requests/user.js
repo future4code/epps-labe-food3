@@ -201,10 +201,10 @@ export const getFullAddress = (setAddress) => {
   };
 
   axios
-    .get(`${BASE_URL}/profile/address`)
+    .get(`${BASE_URL}/profile/address`,headers)
     .then((res) => {
-      console.log(res.data);
-      setAddress(res.data)
+      console.log(res.data.address);
+      setAddress(res.data.address)
     })
     .catch((res) => {
       console.log(res.response);
