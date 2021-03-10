@@ -5,14 +5,15 @@ import { getFullAddress } from "../../requests/user";
 
 /* DESIGN */
 import {
+  Button,
   FormControl,
   FormControlLabel,
   Radio,
   RadioGroup,
 } from "@material-ui/core";
-import Buttons from "../../components/Buttons";
 import Footer from "../../components/Footer/Footer";
 import FoodCard from "../../components/FoodCard/FoodCard";
+import back from "../../Assets/back.png";
 import { useHistory } from "react-router-dom";
 import style from "../../styles/components/CardPage.module.css";
 
@@ -61,8 +62,18 @@ const CartPage = () => {
     setPayment(event.target.value);
   };
 
+  const goBack = () => {
+    history.goBack();
+  };
+
   return (
     <div className={style.CartContainer}>
+      
+      <div className={style.Header}>
+        <img src={back} onClick={goBack} />
+        <p className={style.TitleHeader}>Meu Carrinho</p>
+      </div>
+      
       <div className={style.AdressContainer}>
         <p className={style.AdressDelivery}>Endereço de entrega</p>
 
@@ -72,7 +83,7 @@ const CartPage = () => {
         </p>
       </div>
 
-      <p className={style.Title}>Carrinho vazio</p>
+      {/* <p className={style.Title}>Carrinho vazio</p> */}
 
       {/* container teste para receber os produtos */}
       {products &&
@@ -112,10 +123,12 @@ const CartPage = () => {
               control={<Radio color="black" />}
               label="Cartão de crédito"
             />
+            <div className={style.ButtonContainer}>
+              <button className={style.ButtonConfirm} onClick={confirmBuy}>CONFIRMAR</button>
+            </div>
           </RadioGroup>
         </FormControl>
       </div>
-      <Buttons text="CONFIRMAR" onClick={confirmBuy} />
       <Footer />
     </div>
   );

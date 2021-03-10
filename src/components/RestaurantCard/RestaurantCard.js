@@ -60,10 +60,12 @@ export default function RestaurantCard() {
 
   return (
     <div className={style.BoxCard}>
-      <img src={back} onClick={goBack} />
+
       <div className={style.Header}>
-        <p className={style.TitleHeader}>Restaurantes</p>
+        <img src={back} onClick={goBack} />
+        <p className={style.TitleHeader}>Restaurante</p>
       </div>
+      
       <Card>
         <CardMedia
           style={{ borderRadius: "10px 10px 0 0" }}
@@ -131,6 +133,10 @@ export default function RestaurantCard() {
                         className={style.ButtonAdd}
                         onClick={() => {
                           clickAddPdt(pdt);
+                        }}
+                        style={{
+                          paddingBottom: "1.4rem",
+                          marginBottom: "-17px",
                         }}
                       >
                         adicionar

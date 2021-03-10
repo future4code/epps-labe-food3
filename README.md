@@ -7,7 +7,7 @@ Nome dos integrantes:
 - Sandro Tomé
 - Yuri Pinheiro
 
-Link do Surge: labefood3.surge.sh
+Link do Surge: labe-food.surge.sh
 
 O que funciona:
 - Item 1

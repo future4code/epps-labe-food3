@@ -4,7 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-bottom: 70px;
+  /* margin-right: 30px; */
   display: flex;
   flex-direction: column;
   font-size: 1.5rem;
@@ -13,29 +14,30 @@
 
  .Header {
   width: 360px;
-  height: 64px;
+  height: 50px;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
+  border-bottom: solid 1px lightgray;
   display: flex;
   justify-content: space-around;
   align-items: center;
  }
 
  .TitleHeader{
-  width: 74px;
-  height: 19px;
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.39px;
-  text-align: center;
-  color: #000000;
-  display: flex;
-  align-content: center;
+   width: 190px;
+   height: 19px;
+   font-family: Roboto;
+   font-size: 16px;
+   font-weight: normal;
+   font-stretch: normal;
+   font-style: normal;
+   line-height: normal;
+   letter-spacing: -0.38px;
+   text-align: center;
+   color: #000000;
+   display: flex;
+   justify-content: flex-start;
  }
 
  .TextTitle{
@@ -115,19 +117,20 @@
  }
 
  .ButtonAdd{
-  display: flex;
-  align-self: flex-end;
-  flex-flow: column wrap;
-  width: 20vw;
-  height: 5vh;
-  margin-top: 7px;
-  padding: 8px 21px 10px 10px;
-  border-top-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border: 1px solid #5cb646;
-  color: #5cb646;
-  cursor: pointer;
-  background-color: transparent;
+   display: flex;
+   align-self: flex-end;
+   flex-flow: column wrap;
+   width: 82.5px;
+   height: 20px;
+   margin-top: -8px;
+   padding: 10px 20px 8px 20px;
+   border-top-left-radius: 9px;
+   border-bottom-right-radius: 8px;
+   border: 1px solid #5cb646;
+   color: #5cb646;
+   cursor: pointer;
+   background-color: transparent;
+
  }
 
  .ButtonRemove{
