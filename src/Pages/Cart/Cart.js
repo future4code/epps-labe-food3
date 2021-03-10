@@ -5,7 +5,6 @@ import { getFullAddress } from "../../requests/user";
 
 /* DESIGN */
 import {
-  Button,
   FormControl,
   FormControlLabel,
   Radio,
