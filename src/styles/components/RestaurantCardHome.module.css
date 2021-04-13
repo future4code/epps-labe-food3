@@ -1,0 +1,38 @@
+
+.RestCard{
+  width: 328px;
+  height: 200px;
+  border-radius: 8px;
+  border: solid 1px #b8b8b8;
+  margin-bottom: 8px;
+}
+
+.RestLogo{
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  object-fit: cover;
+}
+
+.CardName{
+    color: #5cb646;
+    margin: 4px 16px 0px 16px;
+}
+
+.CardFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+
+.CardInfo{
+    font-size: 16px;
+    letter-spacing: -0.39px;
+    color: #b8b8b8;
+}
+
+.CardContainer{
+  margin-bottom: 50px;
+}
